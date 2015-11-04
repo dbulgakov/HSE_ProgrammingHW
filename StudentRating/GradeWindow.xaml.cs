@@ -28,7 +28,6 @@ namespace StudentRating
 
         private void buttonOK_Click(object sender, RoutedEventArgs e)
         {   
-            // Check the entered data before closing the window
             DialogResult = true;
         }
 
