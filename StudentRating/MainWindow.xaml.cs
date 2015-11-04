@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using StudentRating.Classes.Interfaces;
 using StudentRating.Classes.Repositories;
+using StudentRating.Classes.RatingCalculators;
+
 
 namespace StudentRating
 {
@@ -22,27 +24,21 @@ namespace StudentRating
     /// </summary>
     public partial class MainWindow : Window
     {
-        private IRepository repo;
-        
-        private double CalculateRating()
-        {
-            double rating = 0;
-            foreach (var g in repo.Grades)
-                rating += g.Mark;
-            return rating;
-        }
+        private IRepository _repository;
+        private IRatingCalculator _calculator;
 
         public MainWindow()
         {
             InitializeComponent();
-            repo = new TestRepository();
+            _repository = new TestRepository();
+            _calculator = new RatingCalculator();
             // repo.GradesChanged += 
-            dataGridGrades.ItemsSource = repo.Grades;
+            dataGridGrades.ItemsSource = _repository.Grades;
         }
 
         private void buttonRating_Click(object sender, RoutedEventArgs e)
         {
-            textBlockRating.Text = String.Format("Your rating is = {0}", CalculateRating());
+            textBlockRating.Text = String.Format("Your rating is = {0}", _calculator.CalculateRating(_repository.Grades));
         }
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)

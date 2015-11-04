@@ -7,7 +7,7 @@ using StudentRating.Classes.Domain;
 
 namespace StudentRating.Classes.Interfaces
 {
-    interface IRatingCalculator
+    public interface IRatingCalculator
     {
         double CalculateRating(List<Grade> grades);
     }
