@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using StudentRating.Classes.Interfaces;
 using StudentRating.Classes.Repositories;
 using StudentRating.Classes.RatingCalculators;
+using StudentRating.Classes.Domain;
 
 
 namespace StudentRating
@@ -63,7 +64,10 @@ namespace StudentRating
 
         private void buttonRemove_Click(object sender, RoutedEventArgs e)
         {
-            _repository.RemoveGrade(dataGridGrades.SelectedCells)
+            while (dataGridGrades.SelectedItems.Count != 0)
+            {
+                _repository.RemoveGrade(g => g.Equals((Grade)dataGridGrades.SelectedItems[0]));
+            }
         }
 
         private void RefreshGrid()
