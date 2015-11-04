@@ -10,8 +10,9 @@ namespace StudentRating.Classes.Repositories
 {
     public class TestRepository : IRepository
     {
-        List<Grade> _grades;
-        List<Course> _courses;
+        private List<Grade> _grades;
+        private List<Course> _courses;
+        private int _gradeIdCounter;
 
         public TestRepository()
         {
@@ -29,6 +30,7 @@ namespace StudentRating.Classes.Repositories
                 new Grade(_courses[2], 10)
             };
 
+            _gradeIdCounter = 0;
         }
 
         public List<Grade> Grades
@@ -45,11 +47,8 @@ namespace StudentRating.Classes.Repositories
 
         public void AddGrade(Grade grade)
         {
-            /*
-            The Id property for a new item should be set in the \AddGrade"
-              method in such a way that no two items in the list have the same Id.
-            */
             CheckGrage(grade);
+            grade.Id = _gradeIdCounter++;
             _grades.Add(grade);
             Save();
             GradesChanged();
