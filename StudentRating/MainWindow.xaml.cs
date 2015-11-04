@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using StudentRating.Classes.Domain;
+using StudentRating.Classes.Interfaces;
+using StudentRating.Classes.Repositories;
 
 namespace StudentRating
 {
@@ -20,31 +21,13 @@ namespace StudentRating
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {   
-        List<Grade> _grades;
-        List<Course> _courses;
-
-        private void InitTestData()
-        {
-            _courses = new List<Course>()
-            {
-                new Course("Programming", 4.15),
-                new Course("Geometry and algebra", 2),
-                new Course("Theoretical bases of informatics", 3.9)
-            };
-            
-            _grades = new List<Grade>()
-            {
-                new Grade(_courses[0], 7),
-                new Grade(_courses[1], 5),
-                new Grade(_courses[2], 10)
-            };
-        }
+    {
+        private IRepository repo;
         
         private double CalculateRating()
         {
             double rating = 0;
-            foreach (var g in _grades)
+            foreach (var g in repo.Grades)
                 rating += g.Mark;
             return rating;
         }
@@ -52,9 +35,8 @@ namespace StudentRating
         public MainWindow()
         {
             InitializeComponent();
-
-            InitTestData();
-            dataGridGrades.ItemsSource = _grades;
+            repo = new TestRepository();
+            dataGridGrades.ItemsSource = repo.Grades;
         }
 
         private void buttonRating_Click(object sender, RoutedEventArgs e)

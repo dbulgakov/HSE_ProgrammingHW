@@ -7,7 +7,7 @@ using StudentRating.Classes.Domain;
 
 namespace StudentRating.Classes.Interfaces
 {
-    interface IRepository
+    public interface IRepository
     {
         List<Grade> Grades { get; }
         List<Course> Courses { get; }
