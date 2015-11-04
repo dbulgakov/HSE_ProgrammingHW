@@ -39,22 +39,53 @@ namespace StudentRating.Classes.Repositories
 
         public void AddGrade(Grade grade)
         {
-            throw new NotImplementedException();
+            CheckGrade(grade);
+            if (_grades.Any(g => g.Equals(grade)))
+            {
+                throw new ArgumentException();   
+            }
+
+            grade.Id = _gradeIdCounter++;
+            _grades.Add(grade);
+            Save();
+            GradesChangedRun();
         }
 
         public void EditGrade(Grade grade)
         {
-            throw new NotImplementedException();
+            CheckGrade(grade);
+            int tmpIndex = _grades.FindIndex(g => g.Course.Equals(grade.Course));
+            _grades[tmpIndex] = grade;
+            Save();
+            GradesChangedRun();
         }
 
         public void RemoveGrade(Predicate<Grade> p)
         {
-            throw new NotImplementedException();
+            _grades.RemoveAll(p);
+            Save();
+            GradesChangedRun();
         }
 
         public void Save()
         {
             _fileprocessor.Write(_grades);
+        }
+
+        private void CheckGrade(Grade grade)
+        {
+            if (grade == null)
+            {
+                throw new ArgumentNullException();
+            }
+        }
+
+        private void GradesChangedRun()
+        {
+            if (GradesChanged != null)
+            {
+                GradesChanged();
+            }
         }
     }
 }

@@ -13,28 +13,30 @@ namespace StudentRating.Classes.DataProcessors
     public class XmlFileProcessor : IDataProcessor
     {
         private XmlSerializer _xmlSerializer;
-        private FileStream _fileStream;
+        private string _pathToFile;
 
         public XmlFileProcessor(string pathToFile)
         {
             _xmlSerializer = new XmlSerializer(typeof(List<Grade>));
-            _fileStream = new FileStream(pathToFile, FileMode.OpenOrCreate);
+            _pathToFile = pathToFile;
         }
 
         public void Write(List<Grade> data)
         {
-            using (_fileStream)
+            FileStream fileStream = new FileStream(_pathToFile, FileMode.Append);
+            using (fileStream)
             {
-                _xmlSerializer.Serialize(_fileStream, data);
+                _xmlSerializer.Serialize(fileStream, data);
             }
         }
 
         public List<Grade> Read()
         {
+            FileStream fileStream = new FileStream(_pathToFile, FileMode.OpenOrCreate);
             List<Grade> data = null;
-            using (_fileStream)
+            using (fileStream)
             {
-                data = (List<Grade>)_xmlSerializer.Deserialize(_fileStream);
+                data = (List<Grade>)_xmlSerializer.Deserialize(fileStream);
             }
             return data;
         }
