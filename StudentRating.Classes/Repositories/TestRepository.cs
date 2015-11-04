@@ -45,11 +45,13 @@ namespace StudentRating.Classes.Repositories
 
         public void AddGrade(Grade grade)
         {
+            CheckGrage(grade);
             _grades.Add(grade);
         }
 
         public void EditGrade(Grade grade)
         {
+            CheckGrage(grade);
  	        throw new NotImplementedException();
         }
 
