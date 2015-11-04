@@ -47,7 +47,7 @@ namespace StudentRating.Classes.Repositories
 
         public void AddGrade(Grade grade)
         {
-            CheckGrage(grade);
+            CheckGrade(grade);
             if (_grades.Any(g => g.Equals(grade)))
             {
                 throw new ArgumentException();
@@ -61,7 +61,7 @@ namespace StudentRating.Classes.Repositories
 
         public void EditGrade(Grade grade)
         {
-            CheckGrage(grade);
+            CheckGrade(grade);
             int tmpIndex = _grades.FindIndex(g => g.Course.Equals(grade.Course));
             _grades[tmpIndex] = grade;
             Save();
@@ -79,7 +79,7 @@ namespace StudentRating.Classes.Repositories
         {
         }
 
-        private void CheckGrage(Grade grade)
+        private void CheckGrade(Grade grade)
         {
             if (grade == null)
             {
