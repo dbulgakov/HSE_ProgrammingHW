@@ -60,7 +60,19 @@ namespace StudentRating.Classes.Repositories
 
         public void Save()
         {
- 	        throw new NotImplementedException();
+            throw new NotImplementedException();
+        }
+
+        private CheckGrage(Grade grade)
+        {
+            if (grade == null)
+            {
+                throw new ArgumentNullException();
+            }
+            if (_grades.Any(g => g.Equals(grade)))
+            {
+                throw new ArgumentException();
+            }
         }
     }
 }
