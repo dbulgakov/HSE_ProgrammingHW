@@ -56,8 +56,10 @@ namespace StudentRating.Classes.Repositories
 
         public void EditGrade(Grade grade)
         {
-            CheckGrage(grade);
- 	        throw new NotImplementedException();
+            //CheckGrage(grade);
+ 	        //throw new NotImplementedException();
+            int tmpIndex = _grades.FindIndex(g => g.Course.Equals(grade.Course));
+            _grades[tmpIndex] = grade;
             Save();
             GradesChangedRun();
         }
