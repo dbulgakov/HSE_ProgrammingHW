@@ -34,7 +34,6 @@ namespace StudentRating
             };
             
             _grades = new List<Grade>()
-            _grades2 = new List<Grade>()
             {
                 new Grade(_courses[0], 7),
                 new Grade(_courses[1], 5),
