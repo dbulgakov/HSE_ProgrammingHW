@@ -21,9 +21,10 @@ namespace StudentRating
     /// </summary>
     public partial class GradeWindow : Window
     {
-        public GradeWindow()
+        public GradeWindow(IRepository repository)
         {
             InitializeComponent();
+            comboBoxCourses.ItemsSource = repository.Courses;
         }
 
         private void buttonOK_Click(object sender, RoutedEventArgs e)
