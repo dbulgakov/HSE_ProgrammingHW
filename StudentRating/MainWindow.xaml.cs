@@ -46,20 +46,12 @@ namespace StudentRating
         {
             var g = new GradeWindow(ref _repository, sender);
             g.ShowDialog();
-            if (g.DialogResult == true)
-            {
-                //
-            }
         }
 
         private void buttonEdit_Click(object sender, RoutedEventArgs e)
         {
             var g = new GradeWindow(ref _repository, sender);
             g.ShowDialog();
-            if (g.DialogResult == true)
-            {
-                //
-            }
         }
 
         private void buttonRemove_Click(object sender, RoutedEventArgs e)
