@@ -14,6 +14,15 @@ namespace StudentRating.Classes.DataProcessors
     {
         private XmlSerializer _xmlSerializer;
         private string _pathToFile;
+        private FileStream _fStream;
+
+        public FileStream Stream 
+        {
+            get { return _fStream; }
+            set { _fStream = value; }
+        }
+        
+
 
         public XmlFileProcessor(string pathToFile)
         {
@@ -23,20 +32,20 @@ namespace StudentRating.Classes.DataProcessors
 
         public void Write(List<Grade> data)
         {
-            FileStream fileStream = new FileStream(_pathToFile, FileMode.Create);
-            using (fileStream)
+            _fStream = new FileStream(_pathToFile, FileMode.Create);
+            using (_fStream)
             {
-                _xmlSerializer.Serialize(fileStream, data);
+                _xmlSerializer.Serialize(_fStream, data);
             }
         }
 
         public List<Grade> Read()
         {
-            FileStream fileStream = new FileStream(_pathToFile, FileMode.OpenOrCreate);
+            _fStream = new FileStream(_pathToFile, FileMode.OpenOrCreate);
             List<Grade> data = null;
-            using (fileStream)
+            using (_fStream)
             {
-                data = (List<Grade>)_xmlSerializer.Deserialize(fileStream);
+                data = (List<Grade>)_xmlSerializer.Deserialize(_fStream);
             }
             return data;
         }

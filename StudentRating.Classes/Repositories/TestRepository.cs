@@ -44,6 +44,7 @@ namespace StudentRating.Classes.Repositories
         }
 
         public event Action GradesChanged;
+        public event Action IOExceptionOccured;
 
         public void AddGrade(Grade grade)
         {

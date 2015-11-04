@@ -13,6 +13,7 @@ namespace StudentRating.Classes.Interfaces
         List<Course> Courses { get; }
 
         event Action GradesChanged;
+        event Action IOExceptionOccured;
 
         void AddGrade(Grade grade);
         void EditGrade(Grade grade);

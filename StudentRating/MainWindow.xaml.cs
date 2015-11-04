@@ -34,6 +34,7 @@ namespace StudentRating
             _repository = new FileRepository();
             _calculator = new HSE_RatingCalculator();
             _repository.GradesChanged += RefreshGrid;
+            _repository.IOExceptionOccured += IOExceptionAlert;
             dataGridGrades.ItemsSource = _repository.Grades;
         }
 
@@ -65,6 +66,11 @@ namespace StudentRating
         private void RefreshGrid()
         {
             dataGridGrades.Items.Refresh();
+        }
+
+        private void IOExceptionAlert()
+        {
+            MessageBox.Show("Error while working with file occured", "Error!");
         }
     }
 }

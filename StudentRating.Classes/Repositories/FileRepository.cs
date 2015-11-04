@@ -20,9 +20,17 @@ namespace StudentRating.Classes.Repositories
         public FileRepository()
         {
             _fileprocessor = new XmlFileProcessor(_filePath);
-            _grades = _fileprocessor.Read();
-            _courses = new List<Course>();
-            _grades.ForEach(g => _courses.Add(g.Course));
+            try
+            {
+                _grades = _fileprocessor.Read();
+                _courses = new List<Course>();
+                _grades.ForEach(g => _courses.Add(g.Course));
+            }
+            catch
+            {
+                HandleIOException();
+            }
+            
         }
 
         public List<Grade> Grades
@@ -36,6 +44,7 @@ namespace StudentRating.Classes.Repositories
         }
 
         public event Action GradesChanged;
+        public event Action IOExceptionOccured;
 
         public void AddGrade(Grade grade)
         {
@@ -68,7 +77,14 @@ namespace StudentRating.Classes.Repositories
 
         public void Save()
         {
-            _fileprocessor.Write(_grades);
+            try
+            {
+                _fileprocessor.Write(_grades);
+            }
+            catch
+            {
+                HandleIOException();
+            }
         }
 
         private void CheckGrade(Grade grade)
@@ -84,6 +100,18 @@ namespace StudentRating.Classes.Repositories
             if (GradesChanged != null)
             {
                 GradesChanged();
+            }
+        }
+
+        private void HandleIOException()
+        {
+            if (_fileprocessor.Stream != null)
+            {
+                _fileprocessor.Stream.Close();
+            }
+            if (IOExceptionOccured != null)
+            {
+                IOExceptionOccured();
             }
         }
     }
