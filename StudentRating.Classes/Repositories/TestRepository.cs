@@ -47,22 +47,27 @@ namespace StudentRating.Classes.Repositories
         {
             CheckGrage(grade);
             _grades.Add(grade);
+            Save();
+            GradesChanged();
         }
 
         public void EditGrade(Grade grade)
         {
             CheckGrage(grade);
  	        throw new NotImplementedException();
+            Save();
+            GradesChanged();
         }
 
         public void RemoveGrade(Predicate<Grade> p)
         {
  	        _grades.RemoveAll(p);
+            Save();
+            GradesChanged();
         }
 
         public void Save()
         {
-            throw new NotImplementedException();
         }
 
         private void CheckGrage(Grade grade)
