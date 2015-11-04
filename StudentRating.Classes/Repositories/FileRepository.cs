@@ -5,19 +5,32 @@ using System.Text;
 using System.Threading.Tasks;
 using StudentRating.Classes.Interfaces;
 using StudentRating.Classes.Domain;
+using StudentRating.Classes.DataProcessors;
 
 namespace StudentRating.Classes.Repositories
 {
-    class FileRepository : IRepository
+    public class FileRepository : IRepository
     {
+        private List<Grade> _grades;
+        private List<Course> _courses;
+        private int _gradeIdCounter;
+        private XmlFileProcessor _fileprocessor;
+        private string _filePath = "data.xml";
+
+        public FileRepository()
+        {
+            _fileprocessor = new XmlFileProcessor(_filePath);
+            _grades = _fileprocessor.Read();
+        }
+
         public List<Grade> Grades
         {
-            get { throw new NotImplementedException(); }
+            get { return _grades;}
         }
 
         public List<Course> Courses
         {
-            get { throw new NotImplementedException(); }
+            get { return _courses;}
         }
 
         public event Action GradesChanged;
@@ -39,7 +52,7 @@ namespace StudentRating.Classes.Repositories
 
         public void Save()
         {
-            throw new NotImplementedException();
+            // write to file
         }
     }
 }

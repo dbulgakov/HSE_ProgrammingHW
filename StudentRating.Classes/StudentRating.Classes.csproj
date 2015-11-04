@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataProcessors\XmlFileProcessor.cs" />
     <Compile Include="Domain\Course.cs" />
     <Compile Include="Domain\Grade.cs" />
+    <Compile Include="Interfaces\IDataProcessor.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IRatingCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
