@@ -43,9 +43,9 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Column="1" Grid.Row="1">
-            <Button Name="buttonAdd" Margin="5 3">Add</Button>
-            <Button Name="buttonEdit" Margin="5 3">Edit</Button>
-            <Button Name="buttonRemove" Margin="5 3">Remove</Button>
+            <Button Name="buttonAdd" Margin="5 3" Click="buttonAdd_Click">Add</Button>
+            <Button Name="buttonEdit" Margin="5 3" Click="buttonEdit_Click">Edit</Button>
+            <Button Name="buttonRemove" Margin="5 3" Click="buttonRemove_Click">Remove</Button>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="5 5" Grid.Row="2">
             <Button Name="buttonRating" Width="100" Height="20" Margin="5 0" Click="buttonRating_Click">Rating</Button>

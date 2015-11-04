@@ -43,5 +43,20 @@ namespace StudentRating
         {
             textBlockRating.Text = String.Format("Your rating is = {0}", CalculateRating());
         }
+
+        private void buttonRemove_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
