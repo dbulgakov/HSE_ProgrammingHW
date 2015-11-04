@@ -65,7 +65,7 @@ namespace StudentRating.Classes.Repositories
             throw new NotImplementedException();
         }
 
-        private CheckGrage(Grade grade)
+        private void CheckGrage(Grade grade)
         {
             if (grade == null)
             {
