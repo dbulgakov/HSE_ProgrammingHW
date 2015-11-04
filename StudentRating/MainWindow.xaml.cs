@@ -32,7 +32,7 @@ namespace StudentRating
             InitializeComponent();
             _repository = new TestRepository();
             _calculator = new HSE_RatingCalculator();
-            // _repository.GradesChanged += 
+            _repository.GradesChanged += RefreshGrid;
             dataGridGrades.ItemsSource = _repository.Grades;
         }
 
@@ -64,6 +64,11 @@ namespace StudentRating
         private void buttonRemove_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void RefreshGrid()
+        {
+            dataGridGrades.Items.Refresh();
         }
     }
 }
