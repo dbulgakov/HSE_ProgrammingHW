@@ -11,7 +11,7 @@ namespace StudentRating.Classes.Repositories
     public class TestRepository : IRepository
     {
         private List<Grade> _grades;
-        private List<Course> _courses;
+        private IList<Course> _courses;
         private int _gradeIdCounter;
 
         public TestRepository()
@@ -38,7 +38,7 @@ namespace StudentRating.Classes.Repositories
             get { return _grades;}
         }
 
-        public List<Course> Courses
+        public IList<Course> Courses
         {
             get { return _courses;}
         }

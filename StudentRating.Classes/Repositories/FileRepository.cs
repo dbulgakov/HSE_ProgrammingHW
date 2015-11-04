@@ -12,7 +12,7 @@ namespace StudentRating.Classes.Repositories
     public class FileRepository : IRepository
     {
         private List<Grade> _grades;
-        private List<Course> _courses;
+        private IList<Course> _courses;
         private int _gradeIdCounter;
         private XmlFileProcessor _fileprocessor;
         private string _filePath = "data.xml";
@@ -38,7 +38,7 @@ namespace StudentRating.Classes.Repositories
             get { return _grades;}
         }
 
-        public List<Course> Courses
+        public IList<Course> Courses
         {
             get { return _courses;}
         }
