@@ -10,7 +10,7 @@ namespace StudentRating.Classes.RatingCalculators
 {
     public class HSE_RatingCalculator : IRatingCalculator
     {
-        public double CalculateRating(List<Grade> grades)
+        public double CalculateRating(IEnumerable<Grade> grades)
         {
             double rating = 0;
             if (grades != null)
