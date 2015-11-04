@@ -63,7 +63,7 @@ namespace StudentRating
 
         private void buttonRemove_Click(object sender, RoutedEventArgs e)
         {
-            
+            _repository.RemoveGrade(dataGridGrades.SelectedCells)
         }
 
         private void RefreshGrid()
