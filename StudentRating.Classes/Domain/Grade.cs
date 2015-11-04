@@ -12,6 +12,12 @@ namespace StudentRating.Classes.Domain
         public Course Course { get; set; }
         public int Mark { get; set; }
 
+        public Grade()
+        {
+            Course = null;
+            Mark = 0;
+        }
+
         public Grade(Course course, int mark)
         {
             Course = course;

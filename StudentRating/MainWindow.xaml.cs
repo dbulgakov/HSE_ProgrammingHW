@@ -31,7 +31,7 @@ namespace StudentRating
         public MainWindow()
         {
             InitializeComponent();
-            _repository = new TestRepository();
+            _repository = new FileRepository();
             _calculator = new HSE_RatingCalculator();
             _repository.GradesChanged += RefreshGrid;
             dataGridGrades.ItemsSource = _repository.Grades;

@@ -21,6 +21,8 @@ namespace StudentRating.Classes.Repositories
         {
             _fileprocessor = new XmlFileProcessor(_filePath);
             _grades = _fileprocessor.Read();
+            _courses = new List<Course>();
+            _grades.ForEach(g => _courses.Add(g.Course));
         }
 
         public List<Grade> Grades
@@ -52,7 +54,7 @@ namespace StudentRating.Classes.Repositories
 
         public void Save()
         {
-            // write to file
+            _fileprocessor.Write(_grades);
         }
     }
 }

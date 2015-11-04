@@ -12,6 +12,12 @@ namespace StudentRating.Classes.Domain
         public string Name { get; set; }
         public double Credits { get; set; }
 
+        public Course()
+        {
+            Name = null;
+            Credits = 0;
+        }
+
         public Course(string name, double credits)
         {
             if (string.IsNullOrWhiteSpace(name))
