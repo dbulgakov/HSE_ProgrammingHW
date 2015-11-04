@@ -45,6 +45,10 @@ namespace StudentRating.Classes.Repositories
 
         public void AddGrade(Grade grade)
         {
+            /*
+            The Id property for a new item should be set in the \AddGrade"
+              method in such a way that no two items in the list have the same Id.
+            */
             CheckGrage(grade);
             _grades.Add(grade);
             Save();
