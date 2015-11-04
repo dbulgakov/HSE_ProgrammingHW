@@ -57,7 +57,7 @@ namespace StudentRating.Classes.Repositories
 
         public void RemoveGrade(Predicate<Grade> p)
         {
- 	        throw new NotImplementedException();
+ 	        _grades.RemoveAll(p);
         }
 
         public void Save()
