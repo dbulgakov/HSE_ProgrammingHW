@@ -48,6 +48,11 @@ namespace StudentRating.Classes.Repositories
         public void AddGrade(Grade grade)
         {
             CheckGrage(grade);
+            if (_grades.Any(g => g.Equals(grade)))
+            {
+                throw new ArgumentException();
+            }
+
             grade.Id = _gradeIdCounter++;
             _grades.Add(grade);
             Save();
@@ -56,8 +61,7 @@ namespace StudentRating.Classes.Repositories
 
         public void EditGrade(Grade grade)
         {
-            //CheckGrage(grade);
- 	        //throw new NotImplementedException();
+            CheckGrage(grade);
             int tmpIndex = _grades.FindIndex(g => g.Course.Equals(grade.Course));
             _grades[tmpIndex] = grade;
             Save();
@@ -80,10 +84,6 @@ namespace StudentRating.Classes.Repositories
             if (grade == null)
             {
                 throw new ArgumentNullException();
-            }
-            if (_grades.Any(g => g.Equals(grade)))
-            {
-                throw new ArgumentException(); //????
             }
         }
 
