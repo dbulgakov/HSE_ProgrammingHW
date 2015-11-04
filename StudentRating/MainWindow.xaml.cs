@@ -43,7 +43,7 @@ namespace StudentRating
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
-            var g = new GradeWindow(_repository);
+            var g = new GradeWindow(ref _repository);
             g.ShowDialog();
             if (g.DialogResult == true)
             {
@@ -53,7 +53,7 @@ namespace StudentRating
 
         private void buttonEdit_Click(object sender, RoutedEventArgs e)
         {
-            var g = new GradeWindow(_repository);
+            var g = new GradeWindow(ref _repository);
             g.ShowDialog();
             if (g.DialogResult == true)
             {

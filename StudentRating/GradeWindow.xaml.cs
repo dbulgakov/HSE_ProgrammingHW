@@ -21,15 +21,44 @@ namespace StudentRating
     /// </summary>
     public partial class GradeWindow : Window
     {
-        public GradeWindow(IRepository repository)
+        private IRepository _repository;
+        private const string ErrorMessage = "Error!";
+        private const string ArgumentNullExceptionMessage = "Please, chose the propriate course.";
+        private const string ArgumentExceptionMessage = "Sorry, selected item already exists in grade list";
+        private const string FormatExceptionMessage = "Plese, check your input, only numbers are accepted";
+        private const string UnhandledErrorMessage = "Something went wrong";
+
+        public GradeWindow(ref IRepository repository)
         {
             InitializeComponent();
             comboBoxCourses.ItemsSource = repository.Courses;
+            _repository = repository;
         }
 
         private void buttonOK_Click(object sender, RoutedEventArgs e)
-        {   
-            DialogResult = true;
+        {
+            try
+            {
+                Grade grade = new Grade((Course)comboBoxCourses.SelectedValue, Convert.ToInt32(textBoxMark.Text));
+                _repository.AddGrade(grade);
+                DialogResult = true;
+            }
+            catch (ArgumentNullException)
+            {
+                MessageBox.Show(ArgumentNullExceptionMessage, ErrorMessage);
+            }
+            catch (ArgumentException)
+            {
+                MessageBox.Show(ArgumentExceptionMessage, ErrorMessage);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show(FormatExceptionMessage, ErrorMessage);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(UnhandledErrorMessage, ErrorMessage);
+            }
         }
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)

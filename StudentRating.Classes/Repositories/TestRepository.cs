@@ -51,7 +51,10 @@ namespace StudentRating.Classes.Repositories
             grade.Id = _gradeIdCounter++;
             _grades.Add(grade);
             Save();
-            GradesChanged();
+            if (GradesChanged != null)
+            {
+                GradesChanged();
+            }
         }
 
         public void EditGrade(Grade grade)
@@ -59,14 +62,20 @@ namespace StudentRating.Classes.Repositories
             CheckGrage(grade);
  	        throw new NotImplementedException();
             Save();
-            GradesChanged();
+            if (GradesChanged != null)
+            {
+                GradesChanged();
+            }
         }
 
         public void RemoveGrade(Predicate<Grade> p)
         {
  	        _grades.RemoveAll(p);
             Save();
-            GradesChanged();
+            if (GradesChanged != null)
+            {
+                GradesChanged();
+            }
         }
 
         public void Save()
@@ -81,7 +90,7 @@ namespace StudentRating.Classes.Repositories
             }
             if (_grades.Any(g => g.Equals(grade)))
             {
-                throw new ArgumentException();
+                throw new ArgumentException(); //????
             }
         }
     }
