@@ -36,6 +36,7 @@ namespace StudentRating
         {
             InitializeComponent();
             repo = new TestRepository();
+            // repo.GradesChanged += 
             dataGridGrades.ItemsSource = repo.Grades;
         }
 
@@ -46,17 +47,27 @@ namespace StudentRating
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            var g = new GradeWindow();
+            g.ShowDialog();
+            if (g.DialogResult == true)
+            {
+                //
+            }
         }
 
         private void buttonEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            var g = new GradeWindow();
+            g.ShowDialog();
+            if (g.DialogResult == true)
+            {
+                //
+            }
         }
 
         private void buttonRemove_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }
