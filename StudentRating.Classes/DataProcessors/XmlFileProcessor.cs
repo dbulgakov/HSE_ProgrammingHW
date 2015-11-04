@@ -23,7 +23,7 @@ namespace StudentRating.Classes.DataProcessors
 
         public void Write(List<Grade> data)
         {
-            FileStream fileStream = new FileStream(_pathToFile, FileMode.Open);
+            FileStream fileStream = new FileStream(_pathToFile, FileMode.Create);
             using (fileStream)
             {
                 _xmlSerializer.Serialize(fileStream, data);

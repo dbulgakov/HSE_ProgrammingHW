@@ -44,7 +44,6 @@ namespace StudentRating.Classes.Repositories
             {
                 throw new ArgumentException();   
             }
-
             grade.Id = _gradeIdCounter++;
             _grades.Add(grade);
             Save();
