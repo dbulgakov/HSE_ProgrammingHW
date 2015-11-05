@@ -21,8 +21,6 @@ namespace StudentRating.Classes.DataProcessors
             get { return _fStream; }
             set { _fStream = value; }
         }
-        
-
 
         public XmlFileProcessor(string pathToFile)
         {
