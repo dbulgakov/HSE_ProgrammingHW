@@ -5,7 +5,7 @@ using StudentRating.Classes.Domain;
 
 namespace StudentRating.Classes.RatingCalculators
 {
-    public class HSE_RatingCalculator : IRatingCalculator
+    public class HseRatingCalculator : IRatingCalculator
     {
         public double CalculateRating(IEnumerable<Grade> grades)
         {

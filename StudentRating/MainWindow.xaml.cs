@@ -20,7 +20,7 @@ namespace StudentRating
         {
             InitializeComponent();
             _repository = new FileRepository();
-            _calculator = new HSE_RatingCalculator();
+            _calculator = new HseRatingCalculator();
             _repository.GradesChanged += RefreshGrid;
             _repository.IOExceptionOccured += IOExceptionAlert;
             dataGridGrades.ItemsSource = _repository.Grades;
