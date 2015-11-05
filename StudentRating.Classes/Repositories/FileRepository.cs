@@ -15,11 +15,11 @@ namespace StudentRating.Classes.Repositories
         private IList<Course> _courses;
         private int _gradeIdCounter;
         private XmlFileProcessor _fileprocessor;
-        private string _filePath = "data.xml";
+        private const string FilePath = "data.xml";
 
         public FileRepository()
         {
-            _fileprocessor = new XmlFileProcessor(_filePath);
+            _fileprocessor = new XmlFileProcessor(FilePath);
             try
             {
                 _grades = _fileprocessor.Read();
@@ -62,7 +62,7 @@ namespace StudentRating.Classes.Repositories
         public void EditGrade(Grade grade)
         {
             CheckGrade(grade);
-            int tmpIndex = _grades.FindIndex(g => g.Course.Equals(grade.Course));
+            var tmpIndex = _grades.FindIndex(g => g.Course.Equals(grade.Course));
             _grades[tmpIndex] = grade;
             Save();
             GradesChangedRun();

@@ -40,7 +40,7 @@ namespace StudentRating.Classes.DataProcessors
         public List<Grade> Read()
         {
             _fStream = new FileStream(_pathToFile, FileMode.OpenOrCreate);
-            List<Grade> data = null;
+            List<Grade> data;
             using (_fStream)
             {
                 data = (List<Grade>)_xmlSerializer.Deserialize(_fStream);

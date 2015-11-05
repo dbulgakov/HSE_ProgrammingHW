@@ -30,11 +30,8 @@ namespace StudentRating.Classes.Domain
 
         public override bool Equals(object obj)
         {
-            Course course = obj as Course;
-            if (course == null)
-                return false;
-            else
-                return Name.Equals(course.Name);
+            var course = obj as Course;
+            return course != null && Name.Equals(course.Name);
         }
     }
 }

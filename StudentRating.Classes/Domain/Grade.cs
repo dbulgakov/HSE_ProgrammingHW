@@ -26,7 +26,7 @@ namespace StudentRating.Classes.Domain
 
         public override bool Equals(object obj)
         {
-            Grade grade = obj as Grade;
+            var grade = obj as Grade;
             if (grade == null)
                 return false;
             else

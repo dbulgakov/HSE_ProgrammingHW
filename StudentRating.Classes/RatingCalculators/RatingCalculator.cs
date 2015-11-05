@@ -13,12 +13,10 @@ namespace StudentRating.Classes.RatingCalculators
         public double CalculateRating(IEnumerable<Grade> grades)
         {
             double rating = 0;
-            if (grades != null)
+            if (grades == null) return rating;
+            foreach (var g in grades)
             {
-                foreach (var g in grades)
-                {
-                    rating += g.Mark;
-                }
+                rating += g.Mark;
             }
             return rating;
         }
