@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Windows;
 using StudentRating.Classes.Interfaces;
-using StudentRating.Classes.Repositories;
-using StudentRating.Classes.RatingCalculators;
 using StudentRating.Classes.Domain;
-
+using StudentRating.Classes.Factories;
 
 namespace StudentRating
 {
@@ -18,9 +16,10 @@ namespace StudentRating
 
         public MainWindow()
         {
+            var factory = new BasicFactory();
             InitializeComponent();
-            _repository = new FileRepository();
-            _calculator = new HseRatingCalculator();
+            _repository = factory.GetRepository();
+            _calculator = factory.GetCalculator();
             _repository.GradesChanged += RefreshGrid;
             _repository.IOExceptionOccured += IOExceptionAlert;
             dataGridGrades.ItemsSource = _repository.Grades;
