@@ -10,7 +10,6 @@ namespace StudentRating.Classes.Repositories
     {
         private List<Grade> _grades;
         private IList<Course> _courses;
-        private int _gradeIdCounter;
 
         public TestRepository()
         {
@@ -27,8 +26,6 @@ namespace StudentRating.Classes.Repositories
                 new Grade(_courses[1], 5),
                 new Grade(_courses[2], 10)
             };
-
-            _gradeIdCounter = 0;
         }
 
         public List<Grade> Grades
@@ -51,8 +48,7 @@ namespace StudentRating.Classes.Repositories
             {
                 throw new ArgumentException();
             }
-
-            grade.Id = _gradeIdCounter++;
+            grade.Id = _grades.Count;
             _grades.Add(grade);
             Save();
             GradesChangedRun();
@@ -62,6 +58,7 @@ namespace StudentRating.Classes.Repositories
         {
             CheckGrade(grade);
             int tmpIndex = _grades.FindIndex(g => g.Course.Equals(grade.Course));
+            grade.Id = tmpIndex;
             _grades[tmpIndex] = grade;
             Save();
             GradesChangedRun();
