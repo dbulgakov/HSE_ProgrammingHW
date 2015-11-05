@@ -18,8 +18,8 @@ namespace StudentRating
         {
             var factory = new BasicFactory();
             InitializeComponent();
-            _repository = factory.GetRepository();
-            _calculator = factory.GetCalculator();
+            _repository = factory.GetRepository(RepositoryType.FILEREPOSITORY);
+            _calculator = factory.GetCalculator(CalculatorType.HSERATINGCALCULATOR);
             _repository.GradesChanged += RefreshGrid;
             _repository.IOExceptionOccured += IOExceptionAlert;
             dataGridGrades.ItemsSource = _repository.Grades;
