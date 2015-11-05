@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using StudentRating.Classes.Interfaces;
 using StudentRating.Classes.Domain;
 using StudentRating.Classes.DataProcessors;
@@ -89,10 +87,7 @@ namespace StudentRating.Classes.Repositories
 
         private void CheckGrade(Grade grade)
         {
-            if (grade == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if (grade == null) throw new ArgumentNullException();
         }
 
         private void GradesChangedRun()
