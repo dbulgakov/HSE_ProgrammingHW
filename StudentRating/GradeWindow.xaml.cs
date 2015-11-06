@@ -16,7 +16,7 @@ namespace StudentRating
         private const string ErrorMessage = "Error!";
         private const string ArgumentNullExceptionMessage = "Please, chose the propriate course.";
         private const string ArgumentExceptionMessage = "Sorry, selected item already exists in grade list";
-        private const string FormatExceptionMessage = "Plese, check your input, only numbers are accepted";
+        private const string FormatExceptionMessage = "Please, check your input, only numbers are accepted";
         private const string UnhandledErrorMessage = "Something went wrong";
 
         public GradeWindow(ref IRepository repository, object s)
