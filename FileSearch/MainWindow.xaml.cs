@@ -30,6 +30,7 @@ namespace FileSearch
             InitializeComponent();
             engine = new SearchEngine();
             engine.OnFileFound += ManageNewFoundFile;
+            engine.OnErrorOcured += ChangeTextStatusBar;
         }
 
 

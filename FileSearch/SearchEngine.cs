@@ -18,6 +18,7 @@ namespace FileSearch
         private const string DefaultPattern = "text";
 
         public Action<string> OnFileFound;
+        public Action<string> OnErrorOcured;
         private CancellationTokenSource _cancellationTokenSource;
 
         public SearchEngine()
@@ -58,9 +59,12 @@ namespace FileSearch
                             }
                         }
                     }
-                    catch (Exception e)
+                    catch
                     {
-                        Console.WriteLine(Resources.SearchEngine_Find_Error_processing_file_message, file, e.Message);
+                        if (OnErrorOcured != null)
+                        {
+                            OnErrorOcured(string.Concat(Resources.SearchEngine_Find_Error_processing_file_message, file));
+                        }
                     }
                     finally
                     {
@@ -78,9 +82,12 @@ namespace FileSearch
                 throw;
             }
 
-            catch (Exception e)
+            catch
             {
-                Console.WriteLine(Resources.SearchEngine_Find_Error_directory_message, currentDirectory, e.Message);
+                if (OnErrorOcured != null)
+                {
+                    OnErrorOcured(Resources.SearchEngine_Find_Error_directory_message);
+                }
             }
         }
 
