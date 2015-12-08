@@ -9,9 +9,8 @@ namespace FileSearch
 {
     class SearchEngine
     {
-        string _initialDirectory;
-        string _pattern;
-        List<string> _searchResults;
+        private string _initialDirectory;
+        private string _pattern;
         public Action<string> OnFileFound;
 
         public SearchEngine(string initialDirectory, string pattern)
@@ -20,7 +19,7 @@ namespace FileSearch
             _pattern = pattern;
         }
 
-        public void Find(string currentDirectory)
+        private void Find(string currentDirectory)
         {
             try
             {
