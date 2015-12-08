@@ -23,7 +23,7 @@ namespace FileSearch
     {
         private SearchEngine engine;
         private const string DefaultProcessName = "notepad.exe";
-        private const int DefaultMaxStringSize = 60;
+        private const int DefaultMaxStringSize = 70;
 
         public MainWindow()
         {
