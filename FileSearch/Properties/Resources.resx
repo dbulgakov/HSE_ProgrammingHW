@@ -129,4 +129,10 @@
   <data name="MainWindow_listBoxSearchResults_MouseDoubleClick_Open_file_message" xml:space="preserve">
     <value>Opened file: </value>
   </data>
+  <data name="SearchEngine_Find_Error_processing_file_message" xml:space="preserve">
+    <value>Error processing file {0}: {1}</value>
+  </data>
+  <data name="SearchEngine_Find_Error_directory_message" xml:space="preserve">
+    <value>Error directory {0}: {1}</value>
+  </data>
 </root>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using FileSearch.Properties;
 
 namespace FileSearch
 {
@@ -60,7 +61,7 @@ namespace FileSearch
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine("Error processing file {0}: {1}", file, e.Message);
+                        Console.WriteLine(Resources.SearchEngine_Find_Error_processing_file_message, file, e.Message);
                     }
                     finally
                     {
@@ -68,7 +69,7 @@ namespace FileSearch
                             sr.Close();
                     }
                 }
-                // Now look through all directories inside the current (recursive call)
+
                 foreach (var directory in Directory.GetDirectories(currentDirectory))
                     Find(directory);
             }
@@ -80,7 +81,7 @@ namespace FileSearch
 
             catch (Exception e)
             {
-                Console.WriteLine("Error directory {0}: {1}", currentDirectory, e.Message);
+                Console.WriteLine(Resources.SearchEngine_Find_Error_directory_message, currentDirectory, e.Message);
             }
         }
 

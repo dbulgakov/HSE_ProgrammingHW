@@ -104,5 +104,23 @@ namespace FileSearch.Properties {
                 return ResourceManager.GetString("MainWindow_ManageNewFoundFile_Too_long_string_symbols", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error directory {0}: {1}.
+        /// </summary>
+        internal static string SearchEngine_Find_Error_directory_message {
+            get {
+                return ResourceManager.GetString("SearchEngine_Find_Error_directory_message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error processing file {0}: {1}.
+        /// </summary>
+        internal static string SearchEngine_Find_Error_processing_file_message {
+            get {
+                return ResourceManager.GetString("SearchEngine_Find_Error_processing_file_message", resourceCulture);
+            }
+        }
     }
 }
