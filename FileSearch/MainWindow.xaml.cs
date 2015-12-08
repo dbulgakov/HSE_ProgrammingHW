@@ -30,5 +30,15 @@ namespace FileSearch
             var engine = new SearchEngine(textBoxPath.Text, textBoxPattern.Text);
             listBoxSearchResults.ItemsSource = engine.GetFiles();
         }
+
+        private void listBoxSearchResults_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void buttonCancel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
