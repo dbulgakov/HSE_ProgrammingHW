@@ -12,6 +12,7 @@ namespace FileSearch
         string _initialDirectory;
         string _pattern;
         List<string> _searchResults;
+        public Action<string> OnFileFound;
 
         public SearchEngine(string initialDirectory, string pattern)
         {
@@ -37,7 +38,10 @@ namespace FileSearch
                             if (line.Contains(_pattern))
                             {
                                 found = true;
-                                _searchResults.Add(file);
+                                if (OnFileFound != null)
+                                {
+                                    OnFileFound(file);
+                                }
                             }
                         }
                     }
@@ -61,11 +65,9 @@ namespace FileSearch
             }
         }
 
-        public List<string> GetFiles()
+        public async Task GetFiles()
         {
-            _searchResults = new List<string>();
-            Find(_initialDirectory);
-            return _searchResults;
+            await Task.Factory.StartNew(() => Find(_initialDirectory));
         }
     }
 }
