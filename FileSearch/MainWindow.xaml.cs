@@ -38,7 +38,7 @@ namespace FileSearch
             listBoxSearchResults.Items.Clear();
             engine.InitialDirectory = textBoxPath.Text;
             engine.Pattern = textBoxPattern.Text;
-            
+            buttonSearch.IsEnabled = false;
             try
             {
                 await engine.GetFilesAsync();
@@ -47,6 +47,10 @@ namespace FileSearch
             catch (OperationCanceledException)
             {
                 ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_canceled_message);
+            }
+            finally
+            {
+                buttonSearch.IsEnabled = true;
             }
         }
 
