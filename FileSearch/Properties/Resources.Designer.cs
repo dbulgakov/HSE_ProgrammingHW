@@ -79,6 +79,15 @@ namespace FileSearch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Opened file: .
+        /// </summary>
+        internal static string MainWindow_listBoxSearchResults_MouseDoubleClick_Open_file_message {
+            get {
+                return ResourceManager.GetString("MainWindow_listBoxSearchResults_MouseDoubleClick_Open_file_message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Found file: .
         /// </summary>
         internal static string MainWindow_ManageNewFoundFile_Found_file_message {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,7 +72,12 @@ namespace FileSearch
 
         private void listBoxSearchResults_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            if (listBoxSearchResults.SelectedItem != null)
+            {
+                var fileName = listBoxSearchResults.SelectedItem.ToString();
+                Process.Start(DefaultProcessName, listBoxSearchResults.SelectedItem.ToString());
+                ChangeTextStatusBar(Properties.Resources.MainWindow_listBoxSearchResults_MouseDoubleClick_Open_file_message + fileName);
+            }
         }
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)

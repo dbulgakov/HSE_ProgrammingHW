@@ -126,4 +126,7 @@
   <data name="MainWindow_buttonSearch_Click_Search_process_canceled_message" xml:space="preserve">
     <value>Search process canceled!</value>
   </data>
+  <data name="MainWindow_listBoxSearchResults_MouseDoubleClick_Open_file_message" xml:space="preserve">
+    <value>Opened file: </value>
+  </data>
 </root>
