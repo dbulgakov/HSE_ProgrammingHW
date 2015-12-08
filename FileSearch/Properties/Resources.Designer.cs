@@ -61,6 +61,15 @@ namespace FileSearch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancelling search process....
+        /// </summary>
+        internal static string MainWindow_buttonCancel_Click_Cancelling_search_process_message {
+            get {
+                return ResourceManager.GetString("MainWindow_buttonCancel_Click_Cancelling_search_process_message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search process canceled!.
         /// </summary>
         internal static string MainWindow_buttonSearch_Click_Search_process_canceled_message {

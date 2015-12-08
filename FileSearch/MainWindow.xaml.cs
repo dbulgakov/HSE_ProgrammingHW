@@ -53,6 +53,7 @@ namespace FileSearch
             finally
             {
                 buttonSearch.IsEnabled = true;
+                progressBarSearch.IsIndeterminate = false;
             }
         }
 
@@ -89,6 +90,8 @@ namespace FileSearch
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
             engine.StopSearch();
+            ChangeTextStatusBar(Properties.Resources.MainWindow_buttonCancel_Click_Cancelling_search_process_message);
+            progressBarSearch.IsIndeterminate = true;
         }
     }
 }

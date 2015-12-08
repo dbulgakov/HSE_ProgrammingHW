@@ -138,4 +138,7 @@
   <data name="MainWindow_buttonSearch_Click_Search_process_start_message" xml:space="preserve">
     <value>Search process started!</value>
   </data>
+  <data name="MainWindow_buttonCancel_Click_Cancelling_search_process_message" xml:space="preserve">
+    <value>Cancelling search process...</value>
+  </data>
 </root>
