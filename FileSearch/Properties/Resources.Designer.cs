@@ -79,6 +79,15 @@ namespace FileSearch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search process started!.
+        /// </summary>
+        internal static string MainWindow_buttonSearch_Click_Search_process_start_message {
+            get {
+                return ResourceManager.GetString("MainWindow_buttonSearch_Click_Search_process_start_message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Opened file: .
         /// </summary>
         internal static string MainWindow_listBoxSearchResults_MouseDoubleClick_Open_file_message {

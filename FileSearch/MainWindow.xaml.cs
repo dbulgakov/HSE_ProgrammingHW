@@ -41,6 +41,7 @@ namespace FileSearch
             buttonSearch.IsEnabled = false;
             try
             {
+                ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_start_message);
                 await engine.GetFilesAsync();
                 ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_finished_message);
             }

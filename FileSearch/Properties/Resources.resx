@@ -135,4 +135,7 @@
   <data name="SearchEngine_Find_Error_directory_message" xml:space="preserve">
     <value>Error directory {0}: {1}</value>
   </data>
+  <data name="MainWindow_buttonSearch_Click_Search_process_start_message" xml:space="preserve">
+    <value>Search process started!</value>
+  </data>
 </root>
