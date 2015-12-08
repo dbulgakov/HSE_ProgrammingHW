@@ -10,16 +10,25 @@ namespace FileSearch
 {
     class SearchEngine
     {
-        private string _initialDirectory;
-        private string _pattern;
+        public string InitialDirectory { get; set; }
+        public string Pattern { get; set; }
+            
+        private const string DefaultInitialDitectory = "../../";
+        private const string DefaultPattern = "text";
+
         public Action<string> OnFileFound;
         private CancellationTokenSource _cancellationTokenSource;
+
+        public SearchEngine()
+            : this(DefaultInitialDitectory, DefaultPattern)
+        {
+        }
 
 
         public SearchEngine(string initialDirectory, string pattern)
         {
-            _initialDirectory = initialDirectory;
-            _pattern = pattern;
+            InitialDirectory= initialDirectory;
+            Pattern = pattern;
             _cancellationTokenSource = new CancellationTokenSource();
         }
 
@@ -39,7 +48,7 @@ namespace FileSearch
                         while (!sr.EndOfStream && !found)
                         {
                             string line = sr.ReadLine();
-                            if (line.Contains(_pattern))
+                            if (line.Contains(Pattern))
                             {
                                 found = true;
                                 if (OnFileFound != null)
@@ -82,7 +91,7 @@ namespace FileSearch
 
         public async Task GetFiles()
         {
-            await Task.Factory.StartNew(() => Find(_initialDirectory), _cancellationTokenSource.Token);
+            await Task.Factory.StartNew(() => Find(InitialDirectory), _cancellationTokenSource.Token);
         }
     }
 }

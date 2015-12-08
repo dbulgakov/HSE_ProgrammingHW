@@ -20,17 +20,23 @@ namespace FileSearch
     /// </summary>
     public partial class MainWindow : Window
     {
+        private SearchEngine engine;
+
+
         public MainWindow()
         {
             InitializeComponent();
+            engine = new SearchEngine();
+            engine.OnFileFound += AddItemToListBox;
         }
 
-        private SearchEngine engine;
+
         private async void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
             listBoxSearchResults.Items.Clear();
-            engine = new SearchEngine(textBoxPath.Text, textBoxPattern.Text);
-            engine.OnFileFound += AddItemToListBox;
+            engine.InitialDirectory = textBoxPath.Text;
+            engine.Pattern = textBoxPattern.Text;
+            
             try
             {
                 await engine.GetFiles();
