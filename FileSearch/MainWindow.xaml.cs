@@ -25,12 +25,20 @@ namespace FileSearch
             InitializeComponent();
         }
 
+        private SearchEngine engine;
         private async void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
             listBoxSearchResults.Items.Clear();
-            var engine = new SearchEngine(textBoxPath.Text, textBoxPattern.Text);
+            engine = new SearchEngine(textBoxPath.Text, textBoxPattern.Text);
             engine.OnFileFound += AddItemToListBox;
-            await engine.GetFiles();
+            try
+            {
+                await engine.GetFiles();
+            }
+            catch
+            {
+                MessageBox.Show("hello");
+            }
         }
 
         private void AddItemToListBox(string item)
@@ -46,7 +54,7 @@ namespace FileSearch
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
-
+            engine.StopSearch();
         }
     }
 }
