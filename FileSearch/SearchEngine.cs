@@ -89,7 +89,7 @@ namespace FileSearch
             _cancellationTokenSource.Cancel();
         }
 
-        public async Task GetFiles()
+        public async Task GetFilesAsync()
         {
             await Task.Factory.StartNew(() => Find(InitialDirectory), _cancellationTokenSource.Token);
         }
