@@ -86,7 +86,7 @@ namespace FileSearch
             {
                 if (OnErrorOcured != null)
                 {
-                    OnErrorOcured(Resources.SearchEngine_Find_Error_directory_message);
+                    OnErrorOcured(string.Concat(Resources.SearchEngine_Find_Error_directory_message, currentDirectory));
                 }
             }
         }

@@ -134,7 +134,7 @@ namespace FileSearch.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error directory {0}: {1}.
+        ///   Looks up a localized string similar to Error with directory: .
         /// </summary>
         internal static string SearchEngine_Find_Error_directory_message {
             get {
@@ -143,7 +143,7 @@ namespace FileSearch.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error processing file {0}: {1}.
+        ///   Looks up a localized string similar to Error with processing file: .
         /// </summary>
         internal static string SearchEngine_Find_Error_processing_file_message {
             get {

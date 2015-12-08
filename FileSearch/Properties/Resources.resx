@@ -133,10 +133,10 @@
     <value>Opened file: </value>
   </data>
   <data name="SearchEngine_Find_Error_processing_file_message" xml:space="preserve">
-    <value>Error processing file {0}: {1}</value>
+    <value>Error with processing file: </value>
   </data>
   <data name="SearchEngine_Find_Error_directory_message" xml:space="preserve">
-    <value>Error directory {0}: {1}</value>
+    <value>Error with directory: </value>
   </data>
   <data name="MainWindow_buttonSearch_Click_Search_process_start_message" xml:space="preserve">
     <value>Search process started!</value>
