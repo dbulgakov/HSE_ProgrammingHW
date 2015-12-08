@@ -21,13 +21,14 @@ namespace FileSearch
     public partial class MainWindow : Window
     {
         private SearchEngine engine;
-
+        private const string DefaultProcessName = "notepad.exe";
+        private const int DefaultMaxStringSize = 60;
 
         public MainWindow()
         {
             InitializeComponent();
             engine = new SearchEngine();
-            engine.OnFileFound += AddItemToListBox;
+            engine.OnFileFound += ManageNewFoundFile;
         }
 
 
@@ -47,9 +48,23 @@ namespace FileSearch
             }
         }
 
-        private void AddItemToListBox(string item)
+        private void ManageNewFoundFile(string pathToFile)
         {
-            listBoxSearchResults.Dispatcher.Invoke(() => listBoxSearchResults.Items.Add(item));
+            listBoxSearchResults.Dispatcher.Invoke(() => listBoxSearchResults.Items.Add(pathToFile));
+            if (pathToFile.Length > DefaultMaxStringSize)
+            {
+                ChangeTextStatusBar(Properties.Resources.MainWindow_ManageNewFoundFile_Found_file_message + pathToFile.Substring(0, DefaultMaxStringSize) + Properties.Resources.MainWindow_ManageNewFoundFile_Too_long_string_symbols);
+            }
+            else
+            {
+                ChangeTextStatusBar(Properties.Resources.MainWindow_ManageNewFoundFile_Found_file_message + pathToFile);
+            }
+        }
+
+
+        private void ChangeTextStatusBar(string text)
+        {
+            statusBarSearchStatus.Dispatcher.Invoke(() => statusBarSearchStatus.Text = text);
         }
 
 
