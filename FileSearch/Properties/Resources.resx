@@ -120,4 +120,10 @@
   <data name="MainWindow_ManageNewFoundFile_Too_long_string_symbols" xml:space="preserve">
     <value>...</value>
   </data>
+  <data name="MainWindow_buttonSearch_Click_Search_process_finished_message" xml:space="preserve">
+    <value>Search process finished!</value>
+  </data>
+  <data name="MainWindow_buttonSearch_Click_Search_process_canceled_message" xml:space="preserve">
+    <value>Search process canceled!</value>
+  </data>
 </root>

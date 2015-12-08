@@ -61,6 +61,24 @@ namespace FileSearch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search process canceled!.
+        /// </summary>
+        internal static string MainWindow_buttonSearch_Click_Search_process_canceled_message {
+            get {
+                return ResourceManager.GetString("MainWindow_buttonSearch_Click_Search_process_canceled_message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search process finished!.
+        /// </summary>
+        internal static string MainWindow_buttonSearch_Click_Search_process_finished_message {
+            get {
+                return ResourceManager.GetString("MainWindow_buttonSearch_Click_Search_process_finished_message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Found file: .
         /// </summary>
         internal static string MainWindow_ManageNewFoundFile_Found_file_message {

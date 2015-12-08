@@ -41,10 +41,11 @@ namespace FileSearch
             try
             {
                 await engine.GetFiles();
+                ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_finished_message);
             }
-            catch
+            catch (OperationCanceledException)
             {
-                MessageBox.Show("hello");
+                ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_canceled_message);
             }
         }
 
