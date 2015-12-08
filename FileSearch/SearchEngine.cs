@@ -30,7 +30,6 @@ namespace FileSearch
         {
             InitialDirectory= initialDirectory;
             Pattern = pattern;
-            _cancellationTokenSource = new CancellationTokenSource();
         }
 
         private void Find(string currentDirectory)
@@ -92,6 +91,7 @@ namespace FileSearch
 
         public async Task GetFilesAsync()
         {
+            _cancellationTokenSource = new CancellationTokenSource();
             await Task.Factory.StartNew(() => Find(InitialDirectory), _cancellationTokenSource.Token);
         }
     }
