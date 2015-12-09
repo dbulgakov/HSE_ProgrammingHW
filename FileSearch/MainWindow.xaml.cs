@@ -29,7 +29,7 @@ namespace FileSearch
         {
             InitializeComponent();
             engine = new SearchEngine();
-            engine.OnFileFound += ManageNewFoundFile;
+            engine.OnFileFound = ManageNewFoundFile;
             engine.OnErrorOcured += ChangeTextStatusBar;
             engine.OnFileProcessed += IncreaseProgressbarValue;
             engine.OnMaxFileNumberChanged += IncreaseMaxProgressbar;
@@ -115,7 +115,7 @@ namespace FileSearch
 
         private void InitializeNewSearch()
         {
-            engine.OnFileFound += ManageNewFoundFile;
+            engine.OnFileFound = ManageNewFoundFile;
             progressBarSearch.Value = 0;
             progressBarSearch.Maximum = 0.0001;
         }
