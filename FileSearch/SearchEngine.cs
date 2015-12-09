@@ -56,6 +56,7 @@ namespace FileSearch
 
             catch (Exception)
             {
+                // ignored
             }
         }
 
