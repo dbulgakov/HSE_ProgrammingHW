@@ -22,7 +22,7 @@
         <TextBlock Grid.Row="1" VerticalAlignment="Center" Margin="5 0">What to search</TextBlock>
         <TextBox Name="textBoxPattern" Grid.Row="1" Grid.Column="1" Margin="5 5" Height="20">text</TextBox>
         <Button Name="buttonSearch" Grid.Row="2" Margin="5 0" Click="buttonSearch_Click">Search</Button>
-        <Button Name="buttonCancel" Grid.Row="3" Margin="5 5" Click="buttonCancel_Click">Cancel</Button>
+        <Button Name="buttonCancel" Grid.Row="3" Margin="5 5" Click="buttonCancel_Click" IsEnabled="False">Cancel</Button>
         <StackPanel Grid.RowSpan="2" Grid.Row="2" Grid.Column="1" Margin="5 0">
             <TextBlock Text="Search progress" />
             <ProgressBar Name="progressBarSearch" Margin="0 5" Height="24" Minimum = "0" Maximum="0.0001"></ProgressBar>

@@ -126,7 +126,10 @@ namespace FileSearch
 
         public void StopSearch()
         {
-            _cancellationTokenSource.Cancel();
+            if (_cancellationTokenSource != null)
+            {
+                _cancellationTokenSource.Cancel();
+            }
         }
 
         public async Task GetFilesAsync()

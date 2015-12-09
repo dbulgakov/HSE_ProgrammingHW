@@ -28,6 +28,7 @@ namespace FileSearch
         private async void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
             listBoxSearchResults.Items.Clear();
+            buttonCancel.IsEnabled = true;
             InitializeNewSearch();
             engine.InitialDirectory = textBoxPath.Text;
             engine.Pattern = textBoxPattern.Text;
@@ -46,7 +47,7 @@ namespace FileSearch
             finally
             {
                 buttonSearch.IsEnabled = true;
-                buttonCancel.IsEnabled = true;
+                buttonCancel.IsEnabled = false;
                 progressBarSearch.IsIndeterminate = false;
             }
         }
@@ -66,7 +67,7 @@ namespace FileSearch
         {
             listBoxSearchResults.Dispatcher.Invoke(() => listBoxSearchResults.Items.Add(pathToFile));
             if (pathToFile.Length > DefaultMaxStringSize)
-            {
+            {   
                 ChangeTextStatusBar(Properties.Resources.MainWindow_ManageNewFoundFile_Found_file_message + pathToFile.Substring(0, DefaultMaxStringSize) + Properties.Resources.MainWindow_ManageNewFoundFile_Too_long_string_symbols);
             }
             else
