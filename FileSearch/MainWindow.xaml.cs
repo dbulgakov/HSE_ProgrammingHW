@@ -37,7 +37,6 @@ namespace FileSearch
         private async void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
             listBoxSearchResults.Items.Clear();
-            buttonCancel.IsEnabled = true;
             engine.InitialDirectory = textBoxPath.Text;
             engine.Pattern = textBoxPattern.Text;
             buttonSearch.IsEnabled = false;
@@ -54,6 +53,7 @@ namespace FileSearch
             finally
             {
                 buttonSearch.IsEnabled = true;
+                buttonCancel.IsEnabled = true;
                 progressBarSearch.IsIndeterminate = false;
             }
         }
