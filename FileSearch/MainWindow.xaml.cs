@@ -31,12 +31,15 @@ namespace FileSearch
             engine = new SearchEngine();
             engine.OnFileFound += ManageNewFoundFile;
             engine.OnErrorOcured += ChangeTextStatusBar;
+            engine.OnFileProcessed += IncreaseProgressbarValue;
+            engine.OnMaxFileNumberChanged += IncreaseMaxProgressbar;
         }
 
 
         private async void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
             listBoxSearchResults.Items.Clear();
+            InitializeNewSearch();
             engine.InitialDirectory = textBoxPath.Text;
             engine.Pattern = textBoxPattern.Text;
             buttonSearch.IsEnabled = false;
@@ -48,6 +51,7 @@ namespace FileSearch
             }
             catch (OperationCanceledException)
             {
+                InitializeNewSearch();
                 ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_canceled_message);
             }
             finally
@@ -57,6 +61,17 @@ namespace FileSearch
                 progressBarSearch.IsIndeterminate = false;
             }
         }
+
+
+        private void buttonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            engine.StopSearch();
+            buttonCancel.IsEnabled = false;
+            engine.OnFileFound = null;
+            ChangeTextStatusBar(Properties.Resources.MainWindow_buttonCancel_Click_Cancelling_search_process_message);
+            progressBarSearch.IsIndeterminate = true;
+        }
+
 
         private void ManageNewFoundFile(string pathToFile)
         {
@@ -88,12 +103,21 @@ namespace FileSearch
             }
         }
 
-        private void buttonCancel_Click(object sender, RoutedEventArgs e)
+        private void IncreaseMaxProgressbar(long delta)
         {
-            engine.StopSearch();
-            buttonCancel.IsEnabled = false;
-            ChangeTextStatusBar(Properties.Resources.MainWindow_buttonCancel_Click_Cancelling_search_process_message);
-            progressBarSearch.IsIndeterminate = true;
+            progressBarSearch.Dispatcher.Invoke(() => progressBarSearch.Maximum += delta);
+        }
+
+        private void IncreaseProgressbarValue()
+        {
+            progressBarSearch.Dispatcher.Invoke(() => progressBarSearch.Value += 1);
+        }
+
+        private void InitializeNewSearch()
+        {
+            engine.OnFileFound += ManageNewFoundFile;
+            progressBarSearch.Value = 0;
+            progressBarSearch.Maximum = 0.0001;
         }
     }
 }

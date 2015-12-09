@@ -19,6 +19,9 @@ namespace FileSearch
 
         public Action<string> OnFileFound;
         public Action<string> OnErrorOcured;
+        public Action<long> OnMaxFileNumberChanged;
+        public Action OnFileProcessed;
+
         private CancellationTokenSource _cancellationTokenSource;
 
         public SearchEngine()
@@ -33,17 +36,50 @@ namespace FileSearch
             Pattern = pattern;
         }
 
+        private void CountFiles(string currentDirectory)
+        {
+            _cancellationTokenSource.Token.ThrowIfCancellationRequested();
+            try
+            {
+                string[] files = Directory.GetFiles(currentDirectory);
+                if (OnMaxFileNumberChanged != null)
+                {
+                    OnMaxFileNumberChanged(files.Length);
+                }
+                foreach (var directory in Directory.GetDirectories(currentDirectory))
+                    CountFiles(directory);
+            }
+
+
+            catch (OperationCanceledException)
+            {
+                throw;
+            }
+
+
+            catch
+            {
+
+            }
+        }
+
+
         private void Find(string currentDirectory)
         {
             try
             {
-                _cancellationTokenSource.Token.ThrowIfCancellationRequested();
                 string[] files = Directory.GetFiles(currentDirectory);
                 foreach (var file in files)
                 {
+                    _cancellationTokenSource.Token.ThrowIfCancellationRequested();
                     StreamReader sr = null;
                     try
                     {
+                        if (OnFileProcessed != null)
+                        {
+                            OnFileProcessed();
+                        }
+
                         sr = new StreamReader(file);
                         bool found = false;
                         while (!sr.EndOfStream && !found)
@@ -99,6 +135,7 @@ namespace FileSearch
         public async Task GetFilesAsync()
         {
             _cancellationTokenSource = new CancellationTokenSource();
+            Task.Factory.StartNew(() => CountFiles(InitialDirectory), _cancellationTokenSource.Token);
             await Task.Factory.StartNew(() => Find(InitialDirectory), _cancellationTokenSource.Token);
         }
     }
