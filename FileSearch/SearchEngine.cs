@@ -35,7 +35,6 @@ namespace FileSearch
 
         private void CountFiles(string currentDirectory)
         {
-            _cancellationTokenSource.Token.ThrowIfCancellationRequested();
             try
             {
                 string[] files = Directory.GetFiles(currentDirectory);
@@ -44,7 +43,10 @@ namespace FileSearch
                     OnMaxFileNumberChanged(files.Length);
                 }
                 foreach (var directory in Directory.GetDirectories(currentDirectory))
+                {
+                    _cancellationTokenSource.Token.ThrowIfCancellationRequested();
                     CountFiles(directory);
+                }
             }
 
 
@@ -68,7 +70,6 @@ namespace FileSearch
                 string[] files = Directory.GetFiles(currentDirectory);
                 foreach (var file in files)
                 {
-                    _cancellationTokenSource.Token.ThrowIfCancellationRequested();
                     StreamReader sr = null;
                     try
                     {
@@ -107,7 +108,10 @@ namespace FileSearch
                 }
 
                 foreach (var directory in Directory.GetDirectories(currentDirectory))
+                {
+                    _cancellationTokenSource.Token.ThrowIfCancellationRequested();
                     Find(directory);
+                }
             }
 
             catch (OperationCanceledException)
