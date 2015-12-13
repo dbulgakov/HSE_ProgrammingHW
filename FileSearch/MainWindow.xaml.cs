@@ -46,6 +46,10 @@ namespace FileSearch
             }
             finally
             {
+                if (listBoxSearchResults.Items.IsEmpty)
+                {
+                    MessageBox.Show(Properties.Resources.MainWindow_buttonSearch_Click_No_files_found_message);
+                }
                 buttonSearch.IsEnabled = true;
                 buttonCancel.IsEnabled = false;
                 progressBarSearch.IsIndeterminate = false;

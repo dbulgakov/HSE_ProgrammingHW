@@ -70,6 +70,15 @@ namespace FileSearch.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No files satisfying the conditions were found!.
+        /// </summary>
+        internal static string MainWindow_buttonSearch_Click_No_files_found_message {
+            get {
+                return ResourceManager.GetString("MainWindow_buttonSearch_Click_No_files_found_message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search process canceled!.
         /// </summary>
         internal static string MainWindow_buttonSearch_Click_Search_process_canceled_message {

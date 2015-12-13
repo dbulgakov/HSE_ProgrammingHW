@@ -148,4 +148,7 @@
   <data name="ProgramIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icons\ProgramIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MainWindow_buttonSearch_Click_No_files_found_message" xml:space="preserve">
+    <value>No files satisfying the conditions were found!</value>
+  </data>
 </root>
