@@ -19,9 +19,9 @@ namespace FileSearch
             InitializeComponent();
             engine = new SearchEngine();
             engine.OnFileFound = ManageNewFoundFile;
-            engine.OnErrorOcured += ChangeTextStatusBar;
-            engine.OnFileProcessed += IncreaseProgressbarValue;
-            engine.OnFileNumberFound += ChangepProgressbarState;
+            engine.OnErrorOcured = ChangeTextStatusBar;
+            engine.OnFileProcessed = IncreaseProgressbarValue;
+            engine.OnFileNumberFound = ChangepProgressbarState;
         }
 
 
@@ -61,6 +61,8 @@ namespace FileSearch
             engine.StopSearch();
             buttonCancel.IsEnabled = false;
             engine.OnFileFound = null;
+            engine.OnErrorOcured = null;
+ 
             ChangeTextStatusBar(Properties.Resources.MainWindow_buttonCancel_Click_Cancelling_search_process_message);
             progressBarSearch.IsIndeterminate = true;
         }
@@ -116,6 +118,7 @@ namespace FileSearch
             engine.InitialDirectory = textBoxPath.Text;
             engine.Pattern = textBoxPattern.Text;
             engine.OnFileFound = ManageNewFoundFile;
+            engine.OnErrorOcured = ChangeTextStatusBar;
 
             progressBarSearch.Value = 0;
         }
