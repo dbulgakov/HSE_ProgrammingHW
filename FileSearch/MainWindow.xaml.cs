@@ -27,12 +27,7 @@ namespace FileSearch
 
         private async void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
-            listBoxSearchResults.Items.Clear();
-            buttonCancel.IsEnabled = true;
             InitializeNewSearch();
-            engine.InitialDirectory = textBoxPath.Text;
-            engine.Pattern = textBoxPattern.Text;
-            buttonSearch.IsEnabled = false;
             try
             {
                 ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_start_message);
@@ -41,7 +36,6 @@ namespace FileSearch
             }
             catch (OperationCanceledException)
             {
-                InitializeNewSearch();
                 ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_canceled_message);
             }
             finally
@@ -109,7 +103,15 @@ namespace FileSearch
 
         private void InitializeNewSearch()
         {
+            listBoxSearchResults.Items.Clear();
+         
+            buttonCancel.IsEnabled = true;
+            buttonSearch.IsEnabled = false;
+            
+            engine.InitialDirectory = textBoxPath.Text;
+            engine.Pattern = textBoxPattern.Text;
             engine.OnFileFound = ManageNewFoundFile;
+
             progressBarSearch.Value = 0;
             progressBarSearch.Maximum = 0.0001;
         }
