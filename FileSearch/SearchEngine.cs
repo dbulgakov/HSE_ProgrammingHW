@@ -16,7 +16,7 @@ namespace FileSearch
 
         public Action<string> OnFileFound;
         public Action<string> OnErrorOcured;
-        public Action<long> OnMaxFileNumberChanged;
+        public Action OnMaxFileNumberFound;
         public Action OnFileProcessed;
 
         private CancellationTokenSource _cancellationTokenSource;
@@ -38,9 +38,9 @@ namespace FileSearch
             try
             {
                 string[] files = Directory.GetFiles(currentDirectory);
-                if (OnMaxFileNumberChanged != null)
+                if (OnMaxFileNumberFound != null)
                 {
-                    OnMaxFileNumberChanged(files.Length);
+                    OnMaxFileNumberFound(files.Length);
                 }
                 foreach (var directory in Directory.GetDirectories(currentDirectory))
                 {

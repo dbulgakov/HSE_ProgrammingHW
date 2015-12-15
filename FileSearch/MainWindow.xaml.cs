@@ -21,29 +21,34 @@ namespace FileSearch
             engine.OnFileFound = ManageNewFoundFile;
             engine.OnErrorOcured += ChangeTextStatusBar;
             engine.OnFileProcessed += IncreaseProgressbarValue;
-            engine.OnMaxFileNumberChanged += IncreaseMaxProgressbar;
+            engine.OnMaxFileNumberFound += ChangepProgressbarState;
         }
 
 
         private async void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
             InitializeNewSearch();
+            ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_start_message);
+            progressBarSearch.IsIndeterminate = true;
+
             try
             {
-                ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_start_message);
                 await engine.GetFilesAsync();
                 ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_finished_message);
             }
+
             catch (OperationCanceledException)
             {
                 ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_canceled_message);
             }
+
             finally
             {
                 if (listBoxSearchResults.Items.IsEmpty)
                 {
                     MessageBox.Show(Properties.Resources.MainWindow_buttonSearch_Click_No_files_found_message);
                 }
+
                 buttonSearch.IsEnabled = true;
                 buttonCancel.IsEnabled = false;
                 progressBarSearch.IsIndeterminate = false;
@@ -91,9 +96,9 @@ namespace FileSearch
             }
         }
 
-        private void IncreaseMaxProgressbar(long delta)
+        private void ChangepProgressbarState()
         {
-            progressBarSearch.Dispatcher.Invoke(() => progressBarSearch.Maximum += delta);
+            progressBarSearch.Dispatcher.Invoke(() => progressBarSearch.IsIndeterminate = false);
         }
 
         private void IncreaseProgressbarValue()
