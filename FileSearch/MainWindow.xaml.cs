@@ -101,6 +101,7 @@ namespace FileSearch
 
         private void ChangepProgressbarState()
         {
+            textBlockProgressbar.Dispatcher.Invoke(() => textBlockProgressbar.Visibility = Visibility.Visible);
             progressBarSearch.Dispatcher.Invoke(() => progressBarSearch.IsIndeterminate = false);
         }
 
@@ -123,6 +124,8 @@ namespace FileSearch
             engine.OnFileFound = ManageNewFoundFile;
             engine.OnErrorOcured = ChangeTextStatusBar;
             engine.OnFileProcessed = IncreaseProgressbarValue;
+
+            textBlockProgressbar.Visibility = Visibility.Hidden;
 
             progressBarSearch.Value = 0;
         }
