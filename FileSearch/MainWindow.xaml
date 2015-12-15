@@ -25,7 +25,10 @@
         <Button Name="buttonCancel" Grid.Row="3" Margin="5 5" Click="buttonCancel_Click" IsEnabled="False">Cancel</Button>
         <StackPanel Grid.RowSpan="2" Grid.Row="2" Grid.Column="1" Margin="5 0">
             <TextBlock Text="Search progress" />
-            <ProgressBar Name="progressBarSearch" Margin="0 5" Height="24" Minimum = "0" Maximum="0.0001"></ProgressBar>
+            <Grid>
+                <ProgressBar Name="progressBarSearch" Margin="0 5" Height="24" Minimum = "0" Maximum="100"></ProgressBar>
+                <TextBlock Text="{Binding ElementName=progressBarSearch, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
         </StackPanel>
         <TextBlock Grid.Row="4" Grid.ColumnSpan="2" TextAlignment="Center">Results</TextBlock>
         <ListBox Name="listBoxSearchResults" Grid.Row="5" Grid.ColumnSpan="2" MouseDoubleClick="listBoxSearchResults_MouseDoubleClick"/>
