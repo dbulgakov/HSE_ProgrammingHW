@@ -38,8 +38,8 @@ namespace FileSearch
 
         private void CountFiles(string initialDirectory)
         {
-            FindFilesInDirectory(initialDirectory); 
-            
+            FindFilesInDirectory(initialDirectory);
+
             if (OnFileNumberFound != null)
             {
                 OnFileNumberFound();
@@ -79,6 +79,7 @@ namespace FileSearch
             try
             {
                 string[] files = Directory.GetFiles(currentDirectory);
+                _cancellationTokenSource.Token.ThrowIfCancellationRequested();
                 foreach (var file in files)
                 {
                     StreamReader sr = null;
@@ -121,7 +122,6 @@ namespace FileSearch
 
                 foreach (var directory in Directory.GetDirectories(currentDirectory))
                 {
-                    _cancellationTokenSource.Token.ThrowIfCancellationRequested();
                     Find(directory);
                 }
             }
