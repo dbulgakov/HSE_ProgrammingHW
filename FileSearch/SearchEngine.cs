@@ -10,16 +10,19 @@ namespace FileSearch
     {
         public string InitialDirectory { get; set; }
         public string Pattern { get; set; }
+        public long FileNumber { get; private set; }
+        public long ProcessedFileNumber { get; private set; }
             
         private const string DefaultInitialDitectory = "../../";
         private const string DefaultPattern = "text";
 
         public Action<string> OnFileFound;
         public Action<string> OnErrorOcured;
-        public Action OnMaxFileNumberFound;
-        public Action OnFileProcessed;
+        public Action OnFileNumberFound;
+        public Action<double> OnFileProcessed;
 
         private CancellationTokenSource _cancellationTokenSource;
+        private Task _countFileTask;
 
         public SearchEngine()
             : this(DefaultInitialDitectory, DefaultPattern)
@@ -33,19 +36,26 @@ namespace FileSearch
             Pattern = pattern;
         }
 
-        private void CountFiles(string currentDirectory)
+        private void CountFiles(string initialDirectory)
+        {
+            FindFilesInDirectory(initialDirectory); 
+
+            if (OnFileNumberFound != null)
+            {
+                OnFileNumberFound();
+            }
+        }
+
+
+        private void FindFilesInDirectory(string currentDirectory)
         {
             try
             {
-                string[] files = Directory.GetFiles(currentDirectory);
-                if (OnMaxFileNumberFound != null)
-                {
-                    OnMaxFileNumberFound(files.Length);
-                }
+                FileNumber += Directory.GetFiles(currentDirectory).Length;
                 foreach (var directory in Directory.GetDirectories(currentDirectory))
                 {
                     _cancellationTokenSource.Token.ThrowIfCancellationRequested();
-                    CountFiles(directory);
+                    FindFilesInDirectory(directory);
                 }
             }
 
@@ -73,9 +83,10 @@ namespace FileSearch
                     StreamReader sr = null;
                     try
                     {
-                        if (OnFileProcessed != null)
+                        ProcessedFileNumber += 1;
+                        if (OnFileProcessed != null && _countFileTask.IsCompleted)
                         {
-                            OnFileProcessed();
+                            OnFileProcessed((double) ProcessedFileNumber / FileNumber );
                         }
 
                         sr = new StreamReader(file);
@@ -138,8 +149,10 @@ namespace FileSearch
 
         public async Task GetFilesAsync()
         {
+            FileNumber = 0;
+            ProcessedFileNumber = 0;
             _cancellationTokenSource = new CancellationTokenSource();
-            Task.Factory.StartNew(() => CountFiles(InitialDirectory), _cancellationTokenSource.Token);
+            _countFileTask = Task.Factory.StartNew(() => CountFiles(InitialDirectory), _cancellationTokenSource.Token);
             await Task.Factory.StartNew(() => Find(InitialDirectory), _cancellationTokenSource.Token);
         }
     }
