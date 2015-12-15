@@ -38,6 +38,7 @@ namespace FileSearch
 
             catch (OperationCanceledException)
             {
+                buttonCancel.IsEnabled = false;
                 ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_canceled_message);
             }
 
@@ -61,7 +62,8 @@ namespace FileSearch
             buttonCancel.IsEnabled = false;
             engine.OnFileFound = null;
             engine.OnErrorOcured = null;
- 
+            engine.OnFileProcessed = null;
+
             ChangeTextStatusBar(Properties.Resources.MainWindow_buttonCancel_Click_Cancelling_search_process_message);
             progressBarSearch.IsIndeterminate = true;
         }
@@ -120,6 +122,7 @@ namespace FileSearch
             engine.Pattern = textBoxPattern.Text;
             engine.OnFileFound = ManageNewFoundFile;
             engine.OnErrorOcured = ChangeTextStatusBar;
+            engine.OnFileProcessed = IncreaseProgressbarValue;
 
             progressBarSearch.Value = 0;
         }
