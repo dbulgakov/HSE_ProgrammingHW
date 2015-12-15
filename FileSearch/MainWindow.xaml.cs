@@ -19,32 +19,36 @@ namespace FileSearch
             InitializeComponent();
             engine = new SearchEngine();
             engine.OnFileFound = ManageNewFoundFile;
-            engine.OnErrorOcured += ChangeTextStatusBar;
-            engine.OnFileProcessed += IncreaseProgressbarValue;
-            engine.OnMaxFileNumberFound += m => progressBarSearch.IsIndeterminate = false;
+            engine.OnErrorOcured = ChangeTextStatusBar;
+            engine.OnFileProcessed = IncreaseProgressbarValue;
+            engine.OnFileNumberFound = ChangepProgressbarState;
         }
 
 
         private async void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
             InitializeNewSearch();
+            ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_start_message);
+            progressBarSearch.IsIndeterminate = true;
+
             try
             {
-                ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_start_message);
-                progressBarSearch.IsIndeterminate = true;
                 await engine.GetFilesAsync();
                 ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_finished_message);
             }
+
             catch (OperationCanceledException)
             {
                 ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_canceled_message);
             }
+
             finally
             {
                 if (listBoxSearchResults.Items.IsEmpty)
                 {
                     MessageBox.Show(Properties.Resources.MainWindow_buttonSearch_Click_No_files_found_message);
                 }
+
                 buttonSearch.IsEnabled = true;
                 buttonCancel.IsEnabled = false;
                 progressBarSearch.IsIndeterminate = false;
@@ -57,6 +61,8 @@ namespace FileSearch
             engine.StopSearch();
             buttonCancel.IsEnabled = false;
             engine.OnFileFound = null;
+            engine.OnErrorOcured = null;
+ 
             ChangeTextStatusBar(Properties.Resources.MainWindow_buttonCancel_Click_Cancelling_search_process_message);
             progressBarSearch.IsIndeterminate = true;
         }
@@ -92,21 +98,27 @@ namespace FileSearch
             }
         }
 
-        private void IncreaseProgressbarValue()
+        private void ChangepProgressbarState()
         {
-            progressBarSearch.Dispatcher.Invoke(() => progressBarSearch.Value += 1);
+            progressBarSearch.Dispatcher.Invoke(() => progressBarSearch.IsIndeterminate = false);
+        }
+
+        private void IncreaseProgressbarValue(double value)
+        {
+            progressBarSearch.Dispatcher.Invoke(() => progressBarSearch.Value = value * 100);
         }
 
         private void InitializeNewSearch()
         {
             listBoxSearchResults.Items.Clear();
-
-            engine.OnFileFound = ManageNewFoundFile;
+         
+            buttonCancel.IsEnabled = true;
+            buttonSearch.IsEnabled = false;
+            
             engine.InitialDirectory = textBoxPath.Text;
             engine.Pattern = textBoxPattern.Text;
-
-            buttonSearch.IsEnabled = false;
-            buttonCancel.IsEnabled = true;
+            engine.OnFileFound = ManageNewFoundFile;
+            engine.OnErrorOcured = ChangeTextStatusBar;
 
             progressBarSearch.Value = 0;
         }
