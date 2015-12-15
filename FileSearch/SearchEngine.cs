@@ -79,9 +79,9 @@ namespace FileSearch
             try
             {
                 string[] files = Directory.GetFiles(currentDirectory);
-                _cancellationTokenSource.Token.ThrowIfCancellationRequested();
                 foreach (var file in files)
                 {
+                    _cancellationTokenSource.Token.ThrowIfCancellationRequested();
                     StreamReader sr = null;
                     try
                     {
