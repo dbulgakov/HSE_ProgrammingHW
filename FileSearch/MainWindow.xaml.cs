@@ -113,7 +113,7 @@ namespace FileSearch
             engine.OnFileFound = ManageNewFoundFile;
 
             progressBarSearch.Value = 0;
-            progressBarSearch.Maximum = 0.0001;
+            progressBarSearch.Maximum = 0.1;
         }
     }
 }
