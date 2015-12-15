@@ -21,7 +21,7 @@ namespace FileSearch
             engine.OnFileFound = ManageNewFoundFile;
             engine.OnErrorOcured += ChangeTextStatusBar;
             engine.OnFileProcessed += IncreaseProgressbarValue;
-            engine.OnMaxFileNumberChanged += IncreaseMaxProgressbar;
+            engine.OnMaxFileNumberFound += IncreaseMaxProgressbar;
         }
 
 
@@ -97,9 +97,13 @@ namespace FileSearch
             }
         }
 
-        private void IncreaseMaxProgressbar(long delta)
+        private void IncreaseMaxProgressbar(long number)
         {
-            progressBarSearch.Dispatcher.Invoke(() => progressBarSearch.Maximum += delta);
+            progressBarSearch.Dispatcher.Invoke(() =>
+            {
+                progressBarSearch.Maximum += number;
+                progressBarSearch.IsIndeterminate = false;
+            });
         }
 
         private void IncreaseProgressbarValue()
@@ -111,7 +115,7 @@ namespace FileSearch
         {
             engine.OnFileFound = ManageNewFoundFile;
             progressBarSearch.Value = 0;
-            progressBarSearch.Maximum = 0.0001;
+            progressBarSearch.Maximum = 1;
         }
     }
 }
