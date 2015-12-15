@@ -39,7 +39,7 @@ namespace FileSearch
         private void CountFiles(string initialDirectory)
         {
             FindFilesInDirectory(initialDirectory); 
-
+            
             if (OnFileNumberFound != null)
             {
                 OnFileNumberFound();
@@ -52,6 +52,7 @@ namespace FileSearch
             try
             {
                 FileNumber += Directory.GetFiles(currentDirectory).Length;
+                
                 foreach (var directory in Directory.GetDirectories(currentDirectory))
                 {
                     _cancellationTokenSource.Token.ThrowIfCancellationRequested();
@@ -86,7 +87,7 @@ namespace FileSearch
                         ProcessedFileNumber += 1;
                         if (OnFileProcessed != null && _countFileTask.IsCompleted)
                         {
-                            OnFileProcessed((double) ProcessedFileNumber / FileNumber );
+                            OnFileProcessed((double) ProcessedFileNumber / FileNumber);
                         }
 
                         sr = new StreamReader(file);
@@ -151,6 +152,7 @@ namespace FileSearch
         {
             FileNumber = 0;
             ProcessedFileNumber = 0;
+
             _cancellationTokenSource = new CancellationTokenSource();
             _countFileTask = Task.Factory.StartNew(() => CountFiles(InitialDirectory), _cancellationTokenSource.Token);
             await Task.Factory.StartNew(() => Find(InitialDirectory), _cancellationTokenSource.Token);

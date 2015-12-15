@@ -29,7 +29,6 @@ namespace FileSearch
         {
             InitializeNewSearch();
             ChangeTextStatusBar(Properties.Resources.MainWindow_buttonSearch_Click_Search_process_start_message);
-            progressBarSearch.IsIndeterminate = true;
 
             try
             {
@@ -111,7 +110,9 @@ namespace FileSearch
         private void InitializeNewSearch()
         {
             listBoxSearchResults.Items.Clear();
-         
+
+            progressBarSearch.IsIndeterminate = true;
+
             buttonCancel.IsEnabled = true;
             buttonSearch.IsEnabled = false;
             
