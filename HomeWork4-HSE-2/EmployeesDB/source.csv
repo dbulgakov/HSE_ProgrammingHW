@@ -1,0 +1,10 @@
+Name;Birth date;Position;Monthly salary (USD);Supervisor
+John Smith;07.01.1980;CEO;5000;
+Samuel Spielberg;15.04.1980;Head of sales;4200;John Smith
+Adam Wiley;26.03.1984;Head of engineering;4200;John Smith
+Marta Edwards;24.02.1983;Lead financial analyst;4200;John Smith
+Craig Norton;05.05.1986;Manager;2000;Samuel Spielberg
+Anna Martin;15.02.1987;Manager;2000;Samuel Spielberg
+Peter Siebel;20.03.1986;Engineer;2500;Adam Wiley
+Ken Doherty;25.06.1990;Engineer;2500;Adam Wiley
+Stephen Dunn;26.07.1992;Programmer;2600;Adam Wiley
