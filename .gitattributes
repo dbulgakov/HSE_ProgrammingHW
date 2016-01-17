@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ###############################################################################
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
@@ -66,6 +67,8 @@
 =======
 =======
 >>>>>>> HomeWork2-HSE-1/master
+=======
+>>>>>>> HomeWork1-HSE-2/master
 # Auto detect text files and perform LF normalization
 * text=auto
 
@@ -84,6 +87,9 @@
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> HomeWork1-HSE-1/master
 =======
 >>>>>>> HomeWork2-HSE-1/master
+=======
+>>>>>>> HomeWork1-HSE-2/master

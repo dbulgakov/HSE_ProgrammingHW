@@ -6,12 +6,16 @@
 *.user
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 *.userosscache
 >>>>>>> HomeWork1-HSE-1/master
 =======
 *.userosscache
 >>>>>>> HomeWork2-HSE-1/master
+=======
+*.userosscache
+>>>>>>> HomeWork1-HSE-2/master
 *.sln.docstates
 
 # Build results
@@ -20,6 +24,7 @@
 [Rr]elease/
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 x64/
 =======
 [Rr]eleases/
@@ -31,6 +36,11 @@ x86/
 x64/
 x86/
 >>>>>>> HomeWork2-HSE-1/master
+=======
+[Rr]eleases/
+x64/
+x86/
+>>>>>>> HomeWork1-HSE-2/master
 build/
 bld/
 [Bb]in/
@@ -145,6 +155,7 @@ publish/
 *.azurePubxml
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## TODO: Comment the next line if you want to checkin your
 ## web deploy settings but do note that will include unencrypted
 ## passwords
@@ -164,12 +175,17 @@ packages/*
 =======
 =======
 >>>>>>> HomeWork2-HSE-1/master
+=======
+>>>>>>> HomeWork1-HSE-2/master
 # TODO: Comment the next line if you want to checkin your web deploy settings 
 # but database connection strings (with potential passwords) will be unencrypted
 *.pubxml
 *.publishproj
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> HomeWork1-HSE-2/master
 # NuGet Packages
 *.nupkg
 # The packages folder can be ignored because of Package Restore
@@ -178,10 +194,14 @@ packages/*
 !**/packages/build/
 # If using the old MSBuild-Integrated Package Restore, uncomment this:
 #!**/packages/repositories.config
+<<<<<<< HEAD
 >>>>>>> HomeWork1-HSE-1/master
 
 =======
 >>>>>>> HomeWork2-HSE-1/master
+=======
+
+>>>>>>> HomeWork1-HSE-2/master
 # Windows Azure Build Output
 csx/
 *.build.csdef
@@ -227,6 +247,7 @@ FakesAssemblies/
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # LightSwitch generated files
 GeneratedArtifacts/
 _Pvt_Extensions/
@@ -234,6 +255,8 @@ ModelManifest.xml
 =======
 =======
 >>>>>>> HomeWork2-HSE-1/master
+=======
+>>>>>>> HomeWork1-HSE-2/master
 # =========================
 # Operating System Files
 # =========================
@@ -281,6 +304,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> HomeWork1-HSE-1/master
 =======
 >>>>>>> HomeWork2-HSE-1/master
+=======
+>>>>>>> HomeWork1-HSE-2/master
