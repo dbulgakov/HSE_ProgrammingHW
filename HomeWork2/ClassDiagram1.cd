@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HomeWork2.AboutProgramWindow" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AboutProgramWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeWork2.AddNewMatchWindow" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIgAAAAAAAgAAAQAAkAAAAAAAABBAAAAAAAAAAA=</HashCode>
+      <FileName>AddNewMatchWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeWork2.App" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeWork2.DialogProcessor" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAEAAAAQAAAAAAAABAAAABIA=</HashCode>
+      <FileName>DialogProcessor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeWork2.FileProcessor" Collapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAEAABA=</HashCode>
+      <FileName>FileProcessor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeWork2.FootballMatch" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAEAAAEAAAAAAAACAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>FootballMatch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeWork2.MainWindow" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgIAAAAAEAIAAAAAAAAAAAABAAECAAAAADAAAAAAEA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeWork2.Match" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAIAAAAEEAABAAAAAAAAAAAAABAAAEAAIAAA=</HashCode>
+      <FileName>Match.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeWork2.Repository" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACACAAAAAAAEAACAQAAAAgAACAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Repository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeWork2.Score" Collapsed="true">
+    <Position X="5.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAMAAAACAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Score.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeWork2.TennisMatch" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAgAAAEAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TennisMatch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeWork2.Properties.Resources" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HomeWork2.Properties.Settings" Collapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -5,9 +5,13 @@
 *.suo
 *.user
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 *.userosscache
 >>>>>>> HomeWork1-HSE-1/master
+=======
+*.userosscache
+>>>>>>> HomeWork2-HSE-1/master
 *.sln.docstates
 
 # Build results
@@ -15,12 +19,18 @@
 [Dd]ebugPublic/
 [Rr]elease/
 <<<<<<< HEAD
+<<<<<<< HEAD
 x64/
 =======
 [Rr]eleases/
 x64/
 x86/
 >>>>>>> HomeWork1-HSE-1/master
+=======
+[Rr]eleases/
+x64/
+x86/
+>>>>>>> HomeWork2-HSE-1/master
 build/
 bld/
 [Bb]in/
@@ -134,6 +144,7 @@ publish/
 *.[Pp]ublish.xml
 *.azurePubxml
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## TODO: Comment the next line if you want to checkin your
 ## web deploy settings but do note that will include unencrypted
 ## passwords
@@ -151,11 +162,14 @@ packages/*
 # (and the packages folder if the line above has been uncommented)
 !packages/build/
 =======
+=======
+>>>>>>> HomeWork2-HSE-1/master
 # TODO: Comment the next line if you want to checkin your web deploy settings 
 # but database connection strings (with potential passwords) will be unencrypted
 *.pubxml
 *.publishproj
 
+<<<<<<< HEAD
 # NuGet Packages
 *.nupkg
 # The packages folder can be ignored because of Package Restore
@@ -166,6 +180,8 @@ packages/*
 #!**/packages/repositories.config
 >>>>>>> HomeWork1-HSE-1/master
 
+=======
+>>>>>>> HomeWork2-HSE-1/master
 # Windows Azure Build Output
 csx/
 *.build.csdef
@@ -210,11 +226,14 @@ UpgradeLog*.htm
 FakesAssemblies/
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # LightSwitch generated files
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 =======
+=======
+>>>>>>> HomeWork2-HSE-1/master
 # =========================
 # Operating System Files
 # =========================
@@ -261,4 +280,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+<<<<<<< HEAD
 >>>>>>> HomeWork1-HSE-1/master
+=======
+>>>>>>> HomeWork2-HSE-1/master
