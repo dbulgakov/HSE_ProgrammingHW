@@ -7,16 +7,16 @@
                       WindowStartupLocation="CenterScreen"
                       DataContext="{Binding Main, Source={StaticResource Locator}}"
                       Title="Google books shelf" Height="350" Width="525" MinHeight="300" MinWidth="400">
-    <Grid ShowGridLines="True">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="3"/>
             <ColumnDefinition Width="*"  MinWidth="150" MaxWidth="350"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" ShowGridLines="True">
+        <Grid Grid.Column="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="45"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Column="0" Grid.Row="0" Margin="5">
@@ -24,10 +24,11 @@
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0"/>
+                <TextBox Grid.Column="0" Margin="5" TextAlignment="Center" />
+                
                 <Button Grid.Column="1" />
             </Grid>
-            <ListView Grid.Column="0" Grid.Row="1" Margin="10" BorderBrush="White">
+            <ListView Grid.Column="0" Grid.Row="1" Margin="5" BorderBrush="White">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Title" />
