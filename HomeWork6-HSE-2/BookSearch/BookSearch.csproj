@@ -78,6 +78,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Book.cs" />
     <Compile Include="Model\DTO\Responce\AccessInfo.cs" />
     <Compile Include="Model\DTO\Responce\ImageLinks.cs" />
     <Compile Include="Model\DTO\Responce\ResponseBook.cs" />
