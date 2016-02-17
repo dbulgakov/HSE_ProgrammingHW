@@ -5,13 +5,14 @@
                       ResizeMode="CanResizeWithGrip"
                       WindowTransitionsEnabled="False"
                       WindowStartupLocation="CenterScreen"
+                      DataContext="{Binding Main, Source={StaticResource Locator}}"
                       Title="Google books shelf" Height="350" Width="525" MinHeight="300" MinWidth="400">
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
+
         <Grid Grid.Column="0" ShowGridLines="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
