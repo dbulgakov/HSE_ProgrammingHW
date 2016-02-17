@@ -10,7 +10,8 @@
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition Width="*"  MinWidth="150" MaxWidth="350"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" ShowGridLines="True">
@@ -26,7 +27,17 @@
                 <TextBlock Grid.Column="0"/>
                 <Button Grid.Column="1" />
             </Grid>
-            <ListView Grid.Column="0" Grid.Row="1" Margin="10" BorderBrush="White" />
+            <ListView Grid.Column="0" Grid.Row="1" Margin="10" BorderBrush="White">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Title" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Author}" Header="Author" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Language}" Header="Language" />
+                        <GridViewColumn DisplayMemberBinding="{Binding PublishDate}" Header="Year" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </Grid>
+        <GridSplitter Grid.Column = "1" HorizontalAlignment="Stretch" />
     </Grid>
 </Controls:MetroWindow>
