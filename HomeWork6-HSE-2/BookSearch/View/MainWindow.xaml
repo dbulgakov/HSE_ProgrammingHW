@@ -13,21 +13,31 @@
             <ColumnDefinition Width="3"/>
             <ColumnDefinition Width="*"  MinWidth="150" MaxWidth="350"/>
         </Grid.ColumnDefinitions>
-
+ 
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="45"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            
+            
             <Grid Grid.Column="0" Grid.Row="0" Margin="5">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*"/>
                     <ColumnDefinition />
+                    <ColumnDefinition Width="50"/>
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" Margin="5" TextAlignment="Center" />
-                
-                <Button Grid.Column="1" />
+                <TextBox Grid.Column="0" Margin="5" TextAlignment="Center" ToolTip="Enter your search query here" />
+                <Button Grid.Column="1"   Width="35" Height="35" VerticalAlignment="Top"
+                    Style="{DynamicResource MetroCircleButtonStyle}">
+                     <Rectangle Width="20" Height="20">
+                            <Rectangle.Fill>
+                                <VisualBrush Stretch="Fill"
+                      Visual="{StaticResource appbar_magnify}" />
+                            </Rectangle.Fill>
+                    </Rectangle>
+                </Button>
             </Grid>
+            
             <ListView Grid.Column="0" Grid.Row="1" Margin="5" BorderBrush="White">
                 <ListView.View>
                     <GridView>
