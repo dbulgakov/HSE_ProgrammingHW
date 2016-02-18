@@ -13,5 +13,7 @@ namespace BookSearch.Model.DTO.Responce
         public string SelfLink { get; set; }
         [JsonProperty("volumeInfo")]
         public VolumeInfo VolumeInfo { get; set; }
+        [JsonProperty("accessInfo")]
+        public AccessInfo AccessInfo { get; set; }
     }
 }

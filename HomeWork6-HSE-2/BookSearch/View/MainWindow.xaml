@@ -70,7 +70,7 @@
                 <TextBlock Text="Subtitle:" FontWeight="Bold" />
                 <TextBlock Text="Publish year:" FontWeight="Bold" />
                 <TextBlock Text="Description/smth else:" FontWeight="Bold" />
-                <Button Margin="0 15 0 0" Content="Read online"/>
+                <Button Margin="0 15 0 0" Content="Read online" Command="{Binding ReadOnlineCommand}" />
             </StackPanel>
             <TextBlock Grid.Row="3" Text="books.google.com ©" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Grid>

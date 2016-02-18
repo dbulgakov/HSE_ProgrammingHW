@@ -26,8 +26,5 @@ namespace BookSearch.Model.DTO.Responce
 
         [JsonProperty("language")]
         public string Language { get; set; }
-
-        [JsonProperty("accessInfo")]
-        public AccessInfo AccessInfo { get; set; }
     }
 }

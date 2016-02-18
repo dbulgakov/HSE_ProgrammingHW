@@ -51,7 +51,7 @@ namespace BookSearch.Model
                     PublishDate = string.IsNullOrEmpty(book.VolumeInfo.PublishDate) ? null : book.VolumeInfo.PublishDate.Substring(0, 4),
                     Language = book.VolumeInfo.Language,
                     Thumbnail = book.VolumeInfo.ImageLinks == null ? null : book.VolumeInfo.ImageLinks.Thumbnail,
-                    WebReaderLink = book.VolumeInfo.AccessInfo == null ? null : book.VolumeInfo.AccessInfo.WebReaderLink
+                    WebReaderLink = book.AccessInfo == null ? null : book.AccessInfo.WebReaderLink
                 });
             }
             return oCollection;

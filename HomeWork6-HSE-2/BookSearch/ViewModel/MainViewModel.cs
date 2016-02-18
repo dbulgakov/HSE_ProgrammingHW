@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -38,14 +39,14 @@ namespace BookSearch.ViewModel
             get { return _progressRindIsActive; }
             set { Set(() => ProgressRingIsActive, ref _progressRindIsActive, value); }
         }
-        
-
 
         public Book SelectedBook { get; set; }
         
 
 
         public RelayCommand SearchCommand { get; set; }
+
+        public RelayCommand ReadOnlineCommand { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
@@ -55,6 +56,8 @@ namespace BookSearch.ViewModel
             _bRepo = bRepo;
             _dialogProvider = dialogProvider;
             SearchCommand = new RelayCommand(ExecuteSearch);
+            ReadOnlineCommand = new RelayCommand(OpenBookOnline,
+                () => SelectedBook != null && SelectedBook.WebReaderLink != null);
         }
 
         private async void ExecuteSearch()
@@ -62,6 +65,11 @@ namespace BookSearch.ViewModel
             ProgressRingIsActive = true;
             await _bRepo.SearchAsync(InputQuery);
             ProgressRingIsActive = false;
+        }
+
+        public void OpenBookOnline()
+        {
+            MessageBox.Show("hello");
         }
     }
 }
