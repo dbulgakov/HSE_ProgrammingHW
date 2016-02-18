@@ -39,9 +39,18 @@ namespace BookSearch.ViewModel
             set { Set(() => ProgressRingIsActive, ref _progressRindIsActive, value); }
         }
 
-        public Book SelectedBook { get; set; }
-        
 
+        private Book _selectedBook;
+
+        public Book SelectedBook
+        {
+            get { return _selectedBook; }
+            set
+            {
+                _selectedBook = value;
+                RaisePropertyChanged("SelectedBook");
+            }
+        }
 
         public RelayCommand SearchCommand { get; set; }
 

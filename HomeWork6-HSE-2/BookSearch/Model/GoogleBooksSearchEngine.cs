@@ -41,10 +41,10 @@ namespace BookSearch.Model
             {
                 oCollection.Add(new Book
                 {
-                    Author = book.VolumeInfo.Authors == null ? null :  string.Join(", ", book.VolumeInfo.Authors.ToArray()),
+                    Author = book.VolumeInfo.Authors == null ? "n/a" :  string.Join(", ", book.VolumeInfo.Authors.ToArray()),
                     Title = book.VolumeInfo.Title,
-                    SubTitle = book.VolumeInfo.Subtitle,
-                    PublishDate = string.IsNullOrEmpty(book.VolumeInfo.PublishDate) ? null : book.VolumeInfo.PublishDate.Substring(0, 4),
+                    SubTitle = book.VolumeInfo.Subtitle ?? "n/a",
+                    PublishDate = string.IsNullOrEmpty(book.VolumeInfo.PublishDate) ? "n/a" : book.VolumeInfo.PublishDate.Substring(0, 4),
                     Language = book.VolumeInfo.Language,
                     Thumbnail = book.VolumeInfo.ImageLinks == null ? null : book.VolumeInfo.ImageLinks.Thumbnail,
                     WebReaderLink = book.AccessInfo == null ? null : book.AccessInfo.WebReaderLink
