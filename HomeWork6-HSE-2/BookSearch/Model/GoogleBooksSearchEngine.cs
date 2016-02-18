@@ -14,20 +14,20 @@ namespace BookSearch.Model
         public async Task<ObservableCollection<Book>> SearchBooksAsync(string query)
         {
             var responseString = await MakeSearchRequestAsync(query);
-            return ParseResponseAsync(responseString);
+            return ParseResponse(responseString);
         }
 
         private async Task<string> MakeSearchRequestAsync(string query)
         {
             using (HttpClient client = new HttpClient())
             {
-                var request = GBUrl + query + "&maxResults=40"; // not ok to do so
+                var request = GBUrl + query + "&maxResults=40";
                 var response = await client.GetAsync(request);
                 return await response.Content.ReadAsStringAsync();
             }
         }
 
-        private ObservableCollection<Book> ParseResponseAsync(string responseString)
+        private ObservableCollection<Book> ParseResponse(string responseString)
         {
             var responseData = JsonConvert.DeserializeObjectAsync<ResponseData>(responseString).Result;
             var oCollection = ConvertResponseBook(responseData);
