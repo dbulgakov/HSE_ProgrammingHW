@@ -30,27 +30,29 @@ namespace BookSearch.Model
         private async Task<ObservableCollection<Book>> ParseResponseAsync(string responseString)
         {
             var responseData = await JsonConvert.DeserializeObjectAsync<ResponseData>(responseString);
-            var oCollection = ConvertResponseBook(responseData);
-            return oCollection;
+            return await ConvertResponseBookAsync(responseData);
         }
 
-        private ObservableCollection<Book> ConvertResponseBook(ResponseData responseBooks)
+        private async Task<ObservableCollection<Book>> ConvertResponseBookAsync(ResponseData responseBooks)
         {
             ObservableCollection<Book> oCollection = new ObservableCollection<Book>();
-            foreach (var book in responseBooks.ResponseBooks)
+            await Task.Factory.StartNew(() =>
             {
-                oCollection.Add(new Book
+                foreach (var book in responseBooks.ResponseBooks)
                 {
-                    Author = book.VolumeInfo.Authors == null ? "n/a" :  string.Join(", ", book.VolumeInfo.Authors.ToArray()),
-                    Title = book.VolumeInfo.Title,
-                    SubTitle = book.VolumeInfo.Subtitle ?? "n/a",
-                    PublishDate = string.IsNullOrEmpty(book.VolumeInfo.PublishDate) ? "n/a" : book.VolumeInfo.PublishDate.Substring(0, 4),
-                    Language = book.VolumeInfo.Language,
-                    Thumbnail = book.VolumeInfo.ImageLinks == null ? null : book.VolumeInfo.ImageLinks.Thumbnail,
-                    SmallThumbnail = book.VolumeInfo.ImageLinks == null ? null : book.VolumeInfo.ImageLinks.SmallThumbnail,
-                    WebReaderLink = book.AccessInfo == null ? null : book.AccessInfo.WebReaderLink
-                });
-            }
+                    oCollection.Add(new Book
+                    {
+                        Author = book.VolumeInfo.Authors == null ? "n/a" : string.Join(", ", book.VolumeInfo.Authors.ToArray()),
+                        Title = book.VolumeInfo.Title,
+                        SubTitle = book.VolumeInfo.Subtitle ?? "n/a",
+                        PublishDate = string.IsNullOrEmpty(book.VolumeInfo.PublishDate) ? "n/a" : book.VolumeInfo.PublishDate.Substring(0, 4),
+                        Language = book.VolumeInfo.Language,
+                        Thumbnail = book.VolumeInfo.ImageLinks == null ? null : book.VolumeInfo.ImageLinks.Thumbnail,
+                        SmallThumbnail = book.VolumeInfo.ImageLinks == null ? null : book.VolumeInfo.ImageLinks.SmallThumbnail,
+                        WebReaderLink = book.AccessInfo == null ? null : book.AccessInfo.WebReaderLink
+                    });
+                }
+            });
             return oCollection;
         }
     }
