@@ -1,23 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GalaSoft.MvvmLight;
 
 namespace BookSearch.Model
 {
-    class GoogleBookRepository : IBookRepository
+    class GoogleBookRepository : ObservableObject, IBookRepository
     {
-        private List<Book> _books;
+        private ObservableCollection<Book> _books;
 
-        public List<Book> Books
+        public ObservableCollection<Book> Books
         {
             get { return _books; }
+            set { Set(() => Books, ref _books, value); }
         }
 
         public GoogleBookRepository()
         {
-            _books = new List<Book>()
+            _books = new ObservableCollection<Book>()
                 {
                     new Book
                     {
@@ -31,6 +34,21 @@ namespace BookSearch.Model
                         WebReaderLink = null
                     }
                 };
+        }
+
+        public void Add()
+        {
+            _books.Add(new Book
+            {
+                Title = "The Ldfssfge of Flowers",
+                SubTitle =
+                    "The Floral Offering: a Token of Affection and Esteem; Comprising the Language and Poetry of Flowers ...",
+                Author = "Henrietta Dumont",
+                Language = "EN",
+                PublishDate = 1852,
+                Thumbnail = null,
+                WebReaderLink = null
+            });
         }
     }
 }

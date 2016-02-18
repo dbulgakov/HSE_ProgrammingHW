@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using BookSearch.Model;
 using GalaSoft.MvvmLight;
@@ -22,7 +23,7 @@ namespace BookSearch.ViewModel
     {
         private IBookRepository _bRepo;
 
-        public List<Book> Books 
+        public ObservableCollection<Book> Books 
         {
             get { return _bRepo.Books; }
         }
@@ -41,7 +42,8 @@ namespace BookSearch.ViewModel
 
         private void Test()
         {
-            MessageBox.Show("Hello!");
+            _bRepo.Add();
+            MessageBox.Show(_bRepo.Books.Count.ToString());
         }
     }
 }
