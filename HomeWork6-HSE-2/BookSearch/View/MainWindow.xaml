@@ -51,5 +51,22 @@
             
         </Grid>
         <GridSplitter Grid.Column = "1" HorizontalAlignment="Stretch" />
+
+        <Grid Grid.Column="2" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Book details:" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Entypo" FontSize="20"/>
+            <StackPanel Grid.Row="2">
+                <TextBlock Text=" = hello"/>
+                <TextBlock Text=" = hello"/>
+                <TextBlock Text=" = hello"/>
+                <TextBlock Text=" = hello"/>
+            </StackPanel>
+            <TextBlock Grid.Row="3" Text="books.google.com ©" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
     </Grid>
 </Controls:MetroWindow>
