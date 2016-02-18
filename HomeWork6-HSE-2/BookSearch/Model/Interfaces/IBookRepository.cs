@@ -10,6 +10,6 @@ namespace BookSearch.Model
     public interface IBookRepository
     {
         ObservableCollection<Book> Books { get; }
-        void Search(string query);
+        Task SearchAsync(string query);
     }
 }

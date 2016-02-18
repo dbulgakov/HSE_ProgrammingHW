@@ -26,7 +26,7 @@ namespace BookSearch.Model
             _books = new ObservableCollection<Book>();
         }
 
-        public async void Search(string query)
+        public async Task SearchAsync(string query)
         {
             _books.Clear();
             IBooksSearchEngine bSearchEngine = new GoogleBooksSearchEngine();

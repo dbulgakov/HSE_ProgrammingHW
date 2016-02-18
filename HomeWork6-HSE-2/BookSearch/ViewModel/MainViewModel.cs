@@ -57,10 +57,10 @@ namespace BookSearch.ViewModel
             SearchCommand = new RelayCommand(ExecuteSearch);
         }
 
-        private void ExecuteSearch()
+        private async void ExecuteSearch()
         {
             ProgressRingIsActive = true;
-            _bRepo.Search(InputQuery);
+            await _bRepo.SearchAsync(InputQuery);
             ProgressRingIsActive = false;
         }
     }
