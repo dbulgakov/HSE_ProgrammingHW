@@ -38,7 +38,7 @@
                 </Button>
             </Grid>
             
-            <ListView Grid.Column="0" Grid.Row="1" Margin="5" BorderBrush="White">
+            <ListView Grid.Column="0" Grid.Row="1" Margin="5" BorderBrush="White" ItemsSource="{Binding Books}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Title" />

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using BookSearch.Model;
 using GalaSoft.MvvmLight;
 
 namespace BookSearch.ViewModel
@@ -16,6 +18,14 @@ namespace BookSearch.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+        private List<Book> _books;
+
+        public List<Book> Books
+        {
+            get { return _books; }
+        }
+        
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
@@ -29,6 +39,20 @@ namespace BookSearch.ViewModel
             ////{
             ////    // Code runs "for real"
             ////}
+            _books = new List<Book>()
+            {
+                new Book
+                {
+                    Title = "The Language of Flowers",
+                    SubTitle =
+                        "The Floral Offering: a Token of Affection and Esteem; Comprising the Language and Poetry of Flowers ...",
+                    Authors = new List<string> {"Henrietta Dumont"},
+                    Language = "EN",
+                    PublishDate = 1852,
+                    Thumbnail = null,
+                    WebReaderLink = null
+                }
+            };
         }
     }
 }
