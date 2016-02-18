@@ -15,14 +15,14 @@
             <ColumnDefinition Width="3"/>
             <ColumnDefinition Width="*"  MinWidth="150" MaxWidth="350"/>
         </Grid.ColumnDefinitions>
- 
+
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="45"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
-            
+
+
             <Grid Grid.Column="0" Grid.Row="0" Margin="5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -31,11 +31,11 @@
                 <TextBox Grid.Column="0" Margin="5" TextAlignment="Center" ToolTip="Enter your search query here" Text="{Binding InputQuery}"/>
                 <Button Grid.Column="1"   Width="35" Height="35" VerticalAlignment="Top" Command="{Binding SearchCommand}"
                     Style="{DynamicResource MetroCircleButtonStyle}">
-                     <Rectangle Width="20" Height="20">
-                            <Rectangle.Fill>
-                                <VisualBrush Stretch="Fill"
+                    <Rectangle Width="20" Height="20">
+                        <Rectangle.Fill>
+                            <VisualBrush Stretch="Fill"
                       Visual="{StaticResource appbar_magnify}" />
-                            </Rectangle.Fill>
+                        </Rectangle.Fill>
                     </Rectangle>
                 </Button>
             </Grid>
@@ -52,26 +52,50 @@
             </ListView>
             <Controls:ProgressRing Grid.Column="0" Grid.Row="1" IsActive="{Binding ProgressRingIsActive}" />
         </Grid>
+
         <GridSplitter Grid.Column = "1" HorizontalAlignment="Stretch" />
 
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="4*"/>
+                <RowDefinition Height="3*"/>
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Book details:" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Entypo" FontSize="20"/>
-            
+
             <Image Grid.Row="1" Margin="15" />
-            
-            <StackPanel Grid.Row="2" Margin="15">
-                <TextBlock Text="Title: " FontWeight="Bold" />
-                <TextBlock Text="Subtitle:" FontWeight="Bold" />
-                <TextBlock Text="Publish year:" FontWeight="Bold" />
-                <TextBlock Text="Description/smth else:" FontWeight="Bold" />
-                <Button Margin="0 15 0 0" Content="Read online" Command="{Binding ReadOnlineCommand}" />
-            </StackPanel>
+
+            <Grid Grid.Row="2" Margin="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Title: " FontWeight="Bold" />
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedBook.Title}" FontStyle="Italic"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Subtitle:" FontWeight="Bold" />
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedBook.SubTitle}" FontStyle="Italic"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Author:" FontWeight="Bold" />
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedBook.Author}" FontStyle="Italic"/>
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Release year:" FontWeight="Bold" />
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding SelectedBook.Author}" FontStyle="Italic"/>
+
+                <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Content="Read online" Command="{Binding ReadOnlineCommand}" />
+
+            </Grid>
+
             <TextBlock Grid.Row="3" Text="books.google.com ©" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Grid>
     </Grid>
