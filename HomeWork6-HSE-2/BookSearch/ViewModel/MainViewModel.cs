@@ -28,6 +28,13 @@ namespace BookSearch.ViewModel
             get { return _bRepo.Books; }
         }
 
+        private string _inputQuery;
+
+        public string InputQuery { get; set; }
+
+        public Book SelectedBook { get; set; }
+        
+
 
         public RelayCommand SearchCommand { get; set; }
 
@@ -42,7 +49,7 @@ namespace BookSearch.ViewModel
 
         private void Test()
         {
-            _bRepo.Add();
+            _bRepo.Search(InputQuery);
             MessageBox.Show(_bRepo.Books.Count.ToString());
         }
     }

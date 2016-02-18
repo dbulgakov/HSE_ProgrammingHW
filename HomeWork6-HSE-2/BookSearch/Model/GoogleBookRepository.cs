@@ -36,11 +36,11 @@ namespace BookSearch.Model
                 };
         }
 
-        public void Add()
+        public void Search(string query)
         {
             _books.Add(new Book
             {
-                Title = "The Ldfssfge of Flowers",
+                Title = query,
                 SubTitle =
                     "The Floral Offering: a Token of Affection and Esteem; Comprising the Language and Poetry of Flowers ...",
                 Author = "Henrietta Dumont",
