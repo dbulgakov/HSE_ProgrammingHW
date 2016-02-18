@@ -46,7 +46,7 @@ namespace BookSearch.ViewModel
                     Title = "The Language of Flowers",
                     SubTitle =
                         "The Floral Offering: a Token of Affection and Esteem; Comprising the Language and Poetry of Flowers ...",
-                    Authors = new List<string> {"Henrietta Dumont"},
+                    Author = "Henrietta Dumont",
                     Language = "EN",
                     PublishDate = 1852,
                     Thumbnail = null,
