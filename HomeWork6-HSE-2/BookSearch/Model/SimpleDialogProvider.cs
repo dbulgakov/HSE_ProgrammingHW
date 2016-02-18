@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace BookSearch.Model
 {
-    class SimpleDialogProvider
+    class SimpleDialogProvider : IDialogProvider
     {
         public void ShowMessage(string message)
         {

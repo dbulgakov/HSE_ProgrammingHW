@@ -22,7 +22,7 @@ namespace BookSearch.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private IBookRepository _bRepo;
-        IDialogProvider _dialogProvider;
+        private IDialogProvider _dialogProvider;
 
         public ObservableCollection<Book> Books 
         {
