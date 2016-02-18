@@ -5,7 +5,7 @@ using System.Windows;
 using BookSearch.Model;
 using BookSearch.Model.Interfaces;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.CommandWpf;
 
 namespace BookSearch.ViewModel
 {
