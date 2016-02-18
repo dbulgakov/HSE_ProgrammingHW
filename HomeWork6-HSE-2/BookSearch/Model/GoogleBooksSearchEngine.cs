@@ -45,10 +45,10 @@ namespace BookSearch.Model
             {
                 oCollection.Add(new Book
                 {
-                    Author = book.VolumeInfo.Authors == null ? "" :  string.Join(", ", book.VolumeInfo.Authors.ToArray()),
+                    Author = book.VolumeInfo.Authors == null ? null :  string.Join(", ", book.VolumeInfo.Authors.ToArray()),
                     Title = book.VolumeInfo.Title,
                     SubTitle = book.VolumeInfo.Subtitle,
-                    PublishDate = book.VolumeInfo.PublishDate,
+                    PublishDate = string.IsNullOrEmpty(book.VolumeInfo.PublishDate) ? null : book.VolumeInfo.PublishDate.Substring(0, 4),
                     Language = book.VolumeInfo.Language,
                     Thumbnail = book.VolumeInfo.ImageLinks == null ? null : book.VolumeInfo.ImageLinks.Thumbnail,
                     WebReaderLink = book.VolumeInfo.AccessInfo == null ? null : book.VolumeInfo.AccessInfo.WebReaderLink
