@@ -64,7 +64,7 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Book details:" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Entypo" FontSize="20"/>
 
-            <Image Grid.Row="1" Margin="15" />
+            <Image Grid.Row="1" Margin="15" Source="{Binding SelectedBook.SmallThumbnail}"/>
 
             <Grid Grid.Row="2" Margin="15">
                 <Grid.ColumnDefinitions>

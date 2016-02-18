@@ -9,5 +9,6 @@
         public string PublishDate { get; set; }
         public string WebReaderLink { get; set; }
         public string Thumbnail { get; set; }
+        public string SmallThumbnail { get; set; }
     }
 }
