@@ -43,8 +43,8 @@
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Title" />
                         <GridViewColumn DisplayMemberBinding="{Binding Author}" Header="Author" />
-                        <GridViewColumn DisplayMemberBinding="{Binding Language}" Header="Language" />
                         <GridViewColumn DisplayMemberBinding="{Binding PublishDate}" Header="Year" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Language}" Header="Language" />
                     </GridView>
                 </ListView.View>
             </ListView>
