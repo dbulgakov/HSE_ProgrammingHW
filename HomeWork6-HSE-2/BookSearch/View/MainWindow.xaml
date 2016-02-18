@@ -6,7 +6,7 @@
                       WindowTransitionsEnabled="False"
                       WindowStartupLocation="CenterScreen"
                       DataContext="{Binding Main, Source={StaticResource Locator}}"
-                      Title="Google books shelf" Height="350" Width="525" MinHeight="300" MinWidth="400">
+                      Title="Google books shelf" Height="550" Width="725" MinHeight="300" MinWidth="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -41,13 +41,14 @@
             <ListView Grid.Column="0" Grid.Row="1" Margin="5" BorderBrush="White" ItemsSource="{Binding Books}" SelectedIndex="{Binding SelectedBook}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Title" />
-                        <GridViewColumn DisplayMemberBinding="{Binding Author}" Header="Author" />
-                        <GridViewColumn DisplayMemberBinding="{Binding PublishDate}" Header="Year" />
-                        <GridViewColumn DisplayMemberBinding="{Binding Language}" Header="Language" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Title" Width="150" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Author}" Header="Author"  Width="100" />
+                        <GridViewColumn DisplayMemberBinding="{Binding PublishDate}" Header="Year" Width="auto" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Language}" Header="Language" Width="auto" />
                     </GridView>
                 </ListView.View>
             </ListView>
+            
         </Grid>
         <GridSplitter Grid.Column = "1" HorizontalAlignment="Stretch" />
     </Grid>
