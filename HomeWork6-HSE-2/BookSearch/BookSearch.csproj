@@ -79,11 +79,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Book.cs" />
+    <Compile Include="Model\GoogleBookRepository.cs" />
     <Compile Include="Model\DTO\Responce\AccessInfo.cs" />
     <Compile Include="Model\DTO\Responce\ImageLinks.cs" />
     <Compile Include="Model\DTO\Responce\ResponseBook.cs" />
     <Compile Include="Model\DTO\Responce\ResponseData.cs" />
     <Compile Include="Model\DTO\Responce\VolumeInfo.cs" />
+    <Compile Include="Model\IBookRepository.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="Resources\Icons.xaml">
