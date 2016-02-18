@@ -22,6 +22,7 @@ namespace BookSearch.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private IBookRepository _bRepo;
+        IDialogProvider _dialogProvider;
 
         public ObservableCollection<Book> Books 
         {
@@ -39,9 +40,10 @@ namespace BookSearch.ViewModel
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel(IBookRepository bRepo)
+        public MainViewModel(IBookRepository bRepo, IDialogProvider dialogProvider)
         {
             _bRepo = bRepo;
+            _dialogProvider = dialogProvider;
             SearchCommand = new RelayCommand(ExecuteSearch);
         }
 

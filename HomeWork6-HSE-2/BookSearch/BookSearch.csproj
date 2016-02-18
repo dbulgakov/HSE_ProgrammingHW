@@ -87,8 +87,10 @@
     <Compile Include="Model\DTO\Responce\ResponseData.cs" />
     <Compile Include="Model\DTO\Responce\VolumeInfo.cs" />
     <Compile Include="Model\GoogleBooksSearchEngine.cs" />
-    <Compile Include="Model\IBookRepository.cs" />
-    <Compile Include="Model\IBooksSearchEngine.cs" />
+    <Compile Include="Model\Interfaces\IBookRepository.cs" />
+    <Compile Include="Model\Interfaces\IBooksSearchEngine.cs" />
+    <Compile Include="Model\Interfaces\IDialogProvider.cs" />
+    <Compile Include="Model\SimpleDialogProvider.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="Resources\Icons.xaml">

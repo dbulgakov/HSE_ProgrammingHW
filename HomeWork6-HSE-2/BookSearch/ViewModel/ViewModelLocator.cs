@@ -44,6 +44,7 @@ namespace BookSearch.ViewModel
             ////}
 
             SimpleIoc.Default.Register<IBookRepository, GoogleBookRepository>();
+            SimpleIoc.Default.Register<IDialogProvider, SimpleDialogProvider>();
             SimpleIoc.Default.Register<MainViewModel>();
         }
 
