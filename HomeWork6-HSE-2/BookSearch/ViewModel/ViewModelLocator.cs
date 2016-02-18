@@ -13,7 +13,7 @@
 */
 
 using BookSearch.Model;
-using GalaSoft.MvvmLight;
+using BookSearch.Model.Interfaces;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 

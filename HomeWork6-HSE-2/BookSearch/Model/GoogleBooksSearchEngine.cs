@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net;
+﻿using System.Collections.ObjectModel;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using BookSearch.Model.DTO.Responce;
+using BookSearch.Model.Interfaces;
 using Newtonsoft.Json;
 
 namespace BookSearch.Model

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
-
-namespace BookSearch.Model
+﻿namespace BookSearch.Model
 {
     public class Book
     {
