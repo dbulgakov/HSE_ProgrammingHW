@@ -30,6 +30,7 @@
                 </Grid.ColumnDefinitions>
                 <TextBox Grid.Column="0" Margin="5" TextAlignment="Center" ToolTip="Enter your search query here" Text="{Binding InputQuery, UpdateSourceTrigger=PropertyChanged}" >
                     <TextBox.InputBindings>
+                        <KeyBinding Command="{Binding SearchCommand}" Key="Return" />
                         <KeyBinding Command="{Binding SearchCommand}" Key="Enter" />
                     </TextBox.InputBindings>
                 </TextBox>
