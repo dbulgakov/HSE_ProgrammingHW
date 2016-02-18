@@ -9,6 +9,6 @@ namespace BookSearch.Model
 {
     interface IBooksSearchEngine
     {
-        ObservableCollection<Book> SearchBooks(string query);
+        Task<ObservableCollection<Book>> SearchBooksAsync(string query);
     }
 }

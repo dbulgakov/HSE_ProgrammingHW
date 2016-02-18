@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using BookSearch.Model.DTO.Responce;
 using GalaSoft.MvvmLight;
 using Newtonsoft.Json;
-using System.Linq;
 
 namespace BookSearch.Model
 {
@@ -27,11 +26,11 @@ namespace BookSearch.Model
             _books = new ObservableCollection<Book>();
         }
 
-        public void Search(string query)
+        public async void Search(string query)
         {
             _books.Clear();
             IBooksSearchEngine bSearchEngine = new GoogleBooksSearchEngine();
-            var t = bSearchEngine.SearchBooks(query);
+            var t = await bSearchEngine.SearchBooksAsync(query);
             foreach (var book in t)
             {
                 _books.Add(book);

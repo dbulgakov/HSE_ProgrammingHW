@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,25 +15,26 @@ namespace BookSearch.Model
     {
         private const string GBUrl = "https://www.googleapis.com/books/v1/volumes?q=";
 
-        public  ObservableCollection<Book> SearchBooks(string query)
+        public async Task<ObservableCollection<Book>> SearchBooksAsync(string query)
         {
-            var responseString = MakeSearchRequest(query);
-            return ParseResponse(responseString);
+            var responseString = await MakeSearchRequestAsync(query);
+            return ParseResponseAsync(responseString);
         }
 
-        private string MakeSearchRequest(string query)
+        private async Task<string> MakeSearchRequestAsync(string query)
         {
-            HttpClient client = new HttpClient();
-            var request = GBUrl + query + "&maxResults=40";
-            var response = client.GetAsync(request).Result;
-            return response.Content.ReadAsStringAsync().Result;
+            using (HttpClient client = new HttpClient())
+            {
+                var request = GBUrl + query + "&maxResults=40"; // not ok to do so
+                var response = await client.GetAsync(request);
+                return await response.Content.ReadAsStringAsync();
+            }
         }
 
-        private ObservableCollection<Book> ParseResponse(string responseString)
+        private ObservableCollection<Book> ParseResponseAsync(string responseString)
         {
-            var responseData = JsonConvert.DeserializeObject<ResponseData>(responseString);
+            var responseData = JsonConvert.DeserializeObjectAsync<ResponseData>(responseString).Result;
             var oCollection = ConvertResponseBook(responseData);
-
             return oCollection;
         }
 
