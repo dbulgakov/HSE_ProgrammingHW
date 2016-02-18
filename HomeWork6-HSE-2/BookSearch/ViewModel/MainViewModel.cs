@@ -1,4 +1,6 @@
+using System;
 using System.Collections.ObjectModel;
+using System.Net.Http;
 using System.Windows;
 using BookSearch.Model;
 using BookSearch.Model.Interfaces;
@@ -71,7 +73,23 @@ namespace BookSearch.ViewModel
         private async void ExecuteSearch()
         {
             ProgressRingIsActive = true;
-            await _bRepo.SearchAsync(InputQuery);
+            try
+            {
+                await _bRepo.SearchAsync(InputQuery);
+            }
+            catch (HttpRequestException)
+            {
+                _dialogProvider.ShowMessage("Проблемы с подключением к сети!");
+            }
+            catch (NullReferenceException)
+            {
+                _dialogProvider.ShowMessage("Не получилось разобрать ответ от сервера:C");
+            }
+            catch (Exception e)
+            {
+                _dialogProvider.ShowMessage("Что-то пошло не так." + e.Message);
+            }
+
             ProgressRingIsActive = false;
         }
 
