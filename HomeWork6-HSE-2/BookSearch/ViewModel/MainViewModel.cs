@@ -75,7 +75,15 @@ namespace BookSearch.ViewModel
             ProgressRingIsActive = true;
             try
             {
+                if (string.IsNullOrEmpty(InputQuery))
+                {
+                    throw new ArgumentException();
+                }
                 await _bRepo.SearchAsync(InputQuery);
+            }
+            catch (ArgumentException)
+            {
+                _dialogProvider.ShowMessage("¬ведите корректный поисковый запрос.");
             }
             catch (HttpRequestException)
             {
