@@ -81,13 +81,13 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="Title: " FontWeight="Bold" />
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedBook.Title}" FontStyle="Italic" Margin="5, 0, 0, 0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedBook.Title}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" FontStyle="Italic" Margin="5, 0, 0, 0"/>
 
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="Subtitle:" FontWeight="Bold" />
-                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedBook.SubTitle}" FontStyle="Italic" Margin="5, 0, 0, 0" />
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedBook.SubTitle}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" FontStyle="Italic" Margin="5, 0, 0, 0" />
 
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Author:" FontWeight="Bold" />
-                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedBook.Author}" FontStyle="Italic" Margin="5, 0, 0, 0" />
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedBook.Author}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" FontStyle="Italic" Margin="5, 0, 0, 0" />
 
                 <TextBlock Grid.Row="3" Grid.Column="0" Text="Release year:" FontWeight="Bold" />
                 <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding SelectedBook.PublishDate}" FontStyle="Italic" Margin="5, 0, 0, 0" />
