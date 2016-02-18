@@ -114,4 +114,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="MainViewModel_ExecuteSearch_WrongQuery" xml:space="preserve">
+    <value>Check your search query.</value>
+  </data>
+  <data name="MainViewModel_ExecuteSearch_ErrorCaption" xml:space="preserve">
+    <value>Error!</value>
+  </data>
+  <data name="MainViewModel_ExecuteSearch_NoInternet" xml:space="preserve">
+    <value>Check your network connection.</value>
+  </data>
+  <data name="MainViewModel_ExecuteSearch_ParseError" xml:space="preserve">
+    <value>Error while reading data from server</value>
+  </data>
+  <data name="MainViewModel_ExecuteSearch_UnhandledError" xml:space="preserve">
+    <value>Something went wrong</value>
+  </data>
 </root>

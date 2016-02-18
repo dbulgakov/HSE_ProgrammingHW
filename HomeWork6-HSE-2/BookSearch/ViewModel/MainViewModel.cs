@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Windows;
 using BookSearch.Model;
 using BookSearch.Model.Interfaces;
+using BookSearch.Properties;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 
@@ -83,19 +84,19 @@ namespace BookSearch.ViewModel
             }
             catch (ArgumentException)
             {
-                _dialogProvider.ShowMessage("Check your search query.", "Error!");
+                _dialogProvider.ShowMessage(Resources.MainViewModel_ExecuteSearch_WrongQuery, Resources.MainViewModel_ExecuteSearch_ErrorCaption);
             }
             catch (HttpRequestException)
             {
-                _dialogProvider.ShowMessage("Check your network connection.", "Error!");
+                _dialogProvider.ShowMessage(Resources.MainViewModel_ExecuteSearch_NoInternet, Resources.MainViewModel_ExecuteSearch_ErrorCaption);
             }
             catch (NullReferenceException)
             {
-                _dialogProvider.ShowMessage("Error while reading data from server", "Error!");
+                _dialogProvider.ShowMessage(Resources.MainViewModel_ExecuteSearch_ParseError, Resources.MainViewModel_ExecuteSearch_ErrorCaption);
             }
             catch (Exception e)
             {
-                _dialogProvider.ShowMessage("Something went wrong" + e.Message, "Error!");
+                _dialogProvider.ShowMessage(Resources.MainViewModel_ExecuteSearch_UnhandledError + e.Message, Resources.MainViewModel_ExecuteSearch_ErrorCaption);
             }
 
             ProgressRingIsActive = false;
