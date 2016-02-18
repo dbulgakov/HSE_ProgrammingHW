@@ -14,7 +14,7 @@ namespace BookSearch.Model
         public async Task<ObservableCollection<Book>> SearchBooksAsync(string query)
         {
             var responseString = await MakeSearchRequestAsync(query);
-            return ParseResponse(responseString);
+            return await ParseResponseAsync(responseString);
         }
 
         private async Task<string> MakeSearchRequestAsync(string query)
@@ -27,9 +27,9 @@ namespace BookSearch.Model
             }
         }
 
-        private ObservableCollection<Book> ParseResponse(string responseString)
+        private async Task<ObservableCollection<Book>> ParseResponseAsync(string responseString)
         {
-            var responseData = JsonConvert.DeserializeObjectAsync<ResponseData>(responseString).Result;
+            var responseData = await JsonConvert.DeserializeObjectAsync<ResponseData>(responseString);
             var oCollection = ConvertResponseBook(responseData);
             return oCollection;
         }
