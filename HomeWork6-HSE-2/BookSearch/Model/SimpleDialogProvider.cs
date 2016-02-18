@@ -13,5 +13,10 @@ namespace BookSearch.Model
         {
             MessageBox.Show(message);
         }
+
+        public void StartProgressRing()
+        {
+
+        }
     }
 }

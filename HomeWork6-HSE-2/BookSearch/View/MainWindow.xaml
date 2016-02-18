@@ -37,7 +37,7 @@
                     </Rectangle>
                 </Button>
             </Grid>
-            
+
             <ListView Grid.Column="0" Grid.Row="1" Margin="5" BorderBrush="White" ItemsSource="{Binding Books}" SelectedIndex="{Binding SelectedBook}">
                 <ListView.View>
                     <GridView>
@@ -48,7 +48,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            
+            <Controls:ProgressRing Grid.Column="0" Grid.Row="1" IsActive="{Binding ProgressRingIsActive}" />
         </Grid>
         <GridSplitter Grid.Column = "1" HorizontalAlignment="Stretch" />
 

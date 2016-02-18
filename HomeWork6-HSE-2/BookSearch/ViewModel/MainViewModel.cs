@@ -31,6 +31,16 @@ namespace BookSearch.ViewModel
 
         public string InputQuery { get; set; }
 
+        private bool _progressRindIsActive;
+
+        public bool ProgressRingIsActive
+        {
+            get { return _progressRindIsActive; }
+            set { Set(() => ProgressRingIsActive, ref _progressRindIsActive, value); }
+        }
+        
+
+
         public Book SelectedBook { get; set; }
         
 
@@ -49,7 +59,9 @@ namespace BookSearch.ViewModel
 
         private void ExecuteSearch()
         {
+            ProgressRingIsActive = true;
             _bRepo.Search(InputQuery);
+            ProgressRingIsActive = false;
         }
     }
 }
