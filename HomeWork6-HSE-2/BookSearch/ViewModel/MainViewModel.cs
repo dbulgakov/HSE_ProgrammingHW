@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Windows;
 using BookSearch.Model;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 
 namespace BookSearch.ViewModel
 {
@@ -24,35 +26,43 @@ namespace BookSearch.ViewModel
         {
             get { return _books; }
         }
-        
+
+
+        public RelayCommand SearchCommand { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         public MainViewModel()
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
-            _books = new List<Book>()
+            if (IsInDesignMode)
             {
-                new Book
+                _books = new List<Book>()
                 {
-                    Title = "The Language of Flowers",
-                    SubTitle =
-                        "The Floral Offering: a Token of Affection and Esteem; Comprising the Language and Poetry of Flowers ...",
-                    Author = "Henrietta Dumont",
-                    Language = "EN",
-                    PublishDate = 1852,
-                    Thumbnail = null,
-                    WebReaderLink = null
-                }
-            };
+                    new Book
+                    {
+                        Title = "The Language of Flowers",
+                        SubTitle =
+                            "The Floral Offering: a Token of Affection and Esteem; Comprising the Language and Poetry of Flowers ...",
+                        Author = "Henrietta Dumont",
+                        Language = "EN",
+                        PublishDate = 1852,
+                        Thumbnail = null,
+                        WebReaderLink = null
+                    }
+                };
+            }
+            else
+            {
+                
+            }
+
+            SearchCommand = new RelayCommand(Test);
+        }
+
+        private void Test()
+        {
+            MessageBox.Show("Hello!");
         }
     }
 }
