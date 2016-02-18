@@ -42,10 +42,10 @@ namespace BookSearch.ViewModel
         public MainViewModel(IBookRepository bRepo)
         {
             _bRepo = bRepo;
-            SearchCommand = new RelayCommand(Test);
+            SearchCommand = new RelayCommand(ExecuteSearch);
         }
 
-        private void Test()
+        private void ExecuteSearch()
         {
             _bRepo.Search(InputQuery);
         }
