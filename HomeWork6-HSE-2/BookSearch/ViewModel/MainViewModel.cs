@@ -103,7 +103,7 @@ namespace BookSearch.ViewModel
 
         public void OpenBookOnline()
         {
-            MessageBox.Show("hello");
+            System.Diagnostics.Process.Start(SelectedBook.WebReaderLink);
         }
     }
 }
