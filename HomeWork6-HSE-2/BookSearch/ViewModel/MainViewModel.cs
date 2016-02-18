@@ -81,6 +81,7 @@ namespace BookSearch.ViewModel
                     throw new ArgumentException();
                 }
                 await _bRepo.SearchAsync(InputQuery);
+                RaisePropertyChanged("Books");
             }
             catch (ArgumentException)
             {

@@ -25,10 +25,7 @@ namespace BookSearch.Model
             _books.Clear();
             IBooksSearchEngine bSearchEngine = new GoogleBooksSearchEngine();
             var t = await bSearchEngine.SearchBooksAsync(query);
-            foreach (var book in t)
-            {
-                _books.Add(book);
-            }
+            _books = t;
         }
     }
 }
