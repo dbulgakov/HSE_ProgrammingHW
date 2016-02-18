@@ -19,7 +19,7 @@ namespace BookSearch.Model.DTO.Responce
         public List<string> Authors { get; set; }
 
         [JsonProperty("publishedDate")]
-        public int PublishDate { get; set; }
+        public string PublishDate { get; set; }
 
         [JsonProperty("imageLinks")]
         public ImageLinks ImageLinks { get; set; }

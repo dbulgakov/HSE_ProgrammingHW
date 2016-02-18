@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using BookSearch.Model.DTO.Responce;
 using GalaSoft.MvvmLight;
+using Newtonsoft.Json;
 
 namespace BookSearch.Model
 {
@@ -20,35 +23,13 @@ namespace BookSearch.Model
 
         public GoogleBookRepository()
         {
-            _books = new ObservableCollection<Book>()
-                {
-                    new Book
-                    {
-                        Title = "The Language of Flowers",
-                        SubTitle =
-                            "The Floral Offering: a Token of Affection and Esteem; Comprising the Language and Poetry of Flowers ...",
-                        Author = "Henrietta Dumont",
-                        Language = "EN",
-                        PublishDate = 1852,
-                        Thumbnail = null,
-                        WebReaderLink = null
-                    }
-                };
+            _books = new ObservableCollection<Book>();
         }
 
         public void Search(string query)
         {
-            _books.Add(new Book
-            {
-                Title = query,
-                SubTitle =
-                    "The Floral Offering: a Token of Affection and Esteem; Comprising the Language and Poetry of Flowers ...",
-                Author = "Henrietta Dumont",
-                Language = "EN",
-                PublishDate = 1852,
-                Thumbnail = null,
-                WebReaderLink = null
-            });
+            IBooksSearchEngine bSearchEngine = new GoogleBooksSearchEngine();
+            var t = bSearchEngine.SearchBooks(query);
         }
     }
 }

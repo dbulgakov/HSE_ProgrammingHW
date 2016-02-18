@@ -13,7 +13,7 @@ namespace BookSearch.Model
         public string SubTitle { get; set; }
         public string Language { get; set; }
         public string Author { get; set; }
-        public int PublishDate { get; set; }
+        public string PublishDate { get; set; }
         public string WebReaderLink { get; set; }
         public string Thumbnail { get; set; }
     }
