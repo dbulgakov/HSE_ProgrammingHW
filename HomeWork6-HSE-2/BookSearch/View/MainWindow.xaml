@@ -4,6 +4,8 @@
                       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                       ResizeMode="CanResizeWithGrip"
                       WindowTransitionsEnabled="False"
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderThickness="1"
                       WindowStartupLocation="CenterScreen"
                       DataContext="{Binding Main, Source={StaticResource Locator}}"
                       Title="Google books shelf" Height="550" Width="725" MinHeight="300" MinWidth="400">
@@ -52,7 +54,7 @@
         </Grid>
         <GridSplitter Grid.Column = "1" HorizontalAlignment="Stretch" />
 
-        <Grid Grid.Column="2" ShowGridLines="True">
+        <Grid Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="4*"/>
@@ -60,11 +62,15 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Book details:" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Entypo" FontSize="20"/>
-            <StackPanel Grid.Row="2">
-                <TextBlock Text=" = hello"/>
-                <TextBlock Text=" = hello"/>
-                <TextBlock Text=" = hello"/>
-                <TextBlock Text=" = hello"/>
+            
+            <Image Grid.Row="1" Margin="15" />
+            
+            <StackPanel Grid.Row="2" Margin="15">
+                <TextBlock Text="Title: " FontWeight="Bold" />
+                <TextBlock Text="Subtitle:" FontWeight="Bold" />
+                <TextBlock Text="Publish year:" FontWeight="Bold" />
+                <TextBlock Text="Description/smth else:" FontWeight="Bold" />
+                <Button Margin="0 15 0 0" Content="Read online"/>
             </StackPanel>
             <TextBlock Grid.Row="3" Text="books.google.com ©" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Grid>
