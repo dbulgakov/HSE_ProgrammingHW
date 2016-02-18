@@ -28,7 +28,11 @@
                     <ColumnDefinition />
                     <ColumnDefinition Width="50"/>
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" Margin="5" TextAlignment="Center" ToolTip="Enter your search query here" Text="{Binding InputQuery}"/>
+                <TextBox Grid.Column="0" Margin="5" TextAlignment="Center" ToolTip="Enter your search query here" Text="{Binding InputQuery}">
+                    <TextBox.InputBindings>
+                        <KeyBinding Command="{Binding SearchCommand}" Key="Enter" />
+                    </TextBox.InputBindings>
+                </TextBox>
                 <Button Grid.Column="1"   Width="35" Height="35" VerticalAlignment="Top" Command="{Binding SearchCommand}"
                     Style="{DynamicResource MetroCircleButtonStyle}">
                     <Rectangle Width="20" Height="20">
@@ -81,16 +85,16 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="Title: " FontWeight="Bold" />
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedBook.Title}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" FontStyle="Italic" Margin="5, 0, 0, 0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedBook.Title, FallbackValue='n/a'}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" FontStyle="Italic" Margin="5, 0, 0, 0"/>
 
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="Subtitle:" FontWeight="Bold" />
-                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedBook.SubTitle}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" FontStyle="Italic" Margin="5, 0, 0, 0" />
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedBook.SubTitle, FallbackValue='n/a'}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" FontStyle="Italic" Margin="5, 0, 0, 0" />
 
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Author:" FontWeight="Bold" />
-                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedBook.Author}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" FontStyle="Italic" Margin="5, 0, 0, 0" />
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedBook.Author, FallbackValue='n/a'}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" FontStyle="Italic" Margin="5, 0, 0, 0" />
 
                 <TextBlock Grid.Row="3" Grid.Column="0" Text="Release year:" FontWeight="Bold" />
-                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding SelectedBook.PublishDate}" FontStyle="Italic" Margin="5, 0, 0, 0" />
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding SelectedBook.PublishDate, FallbackValue='n/a'}" FontStyle="Italic" Margin="5, 0, 0, 0" />
 
                 <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Content="Read online" Command="{Binding ReadOnlineCommand}" />
 

@@ -66,6 +66,7 @@ namespace BookSearch.ViewModel
         {
             _bRepo = bRepo;
             _dialogProvider = dialogProvider;
+            SelectedBook = null;
             SearchCommand = new RelayCommand(ExecuteSearch);
             ReadOnlineCommand = new RelayCommand(OpenBookOnline,
                 () => SelectedBook != null && SelectedBook.WebReaderLink != null);
@@ -83,18 +84,22 @@ namespace BookSearch.ViewModel
                 await _bRepo.SearchAsync(InputQuery);
                 RaisePropertyChanged("Books");
             }
+
             catch (ArgumentException)
             {
                 _dialogProvider.ShowMessage(Resources.MainViewModel_ExecuteSearch_WrongQuery, Resources.MainViewModel_ExecuteSearch_ErrorCaption);
             }
+
             catch (HttpRequestException)
             {
                 _dialogProvider.ShowMessage(Resources.MainViewModel_ExecuteSearch_NoInternet, Resources.MainViewModel_ExecuteSearch_ErrorCaption);
             }
+
             catch (NullReferenceException)
             {
                 _dialogProvider.ShowMessage(Resources.MainViewModel_ExecuteSearch_ParseError, Resources.MainViewModel_ExecuteSearch_ErrorCaption);
             }
+
             catch (Exception e)
             {
                 _dialogProvider.ShowMessage(Resources.MainViewModel_ExecuteSearch_UnhandledError + e.Message, Resources.MainViewModel_ExecuteSearch_ErrorCaption);
