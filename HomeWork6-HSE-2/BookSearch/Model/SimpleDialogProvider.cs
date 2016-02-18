@@ -9,5 +9,10 @@ namespace BookSearch.Model
         {
             MessageBox.Show(message);
         }
+
+        public void ShowMessage(string message, string caption)
+        {
+            MessageBox.Show(message, caption);
+        }
     }
 }

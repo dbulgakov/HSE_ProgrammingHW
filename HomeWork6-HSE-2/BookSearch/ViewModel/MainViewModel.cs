@@ -83,19 +83,19 @@ namespace BookSearch.ViewModel
             }
             catch (ArgumentException)
             {
-                _dialogProvider.ShowMessage("Введите корректный поисковый запрос.");
+                _dialogProvider.ShowMessage("Check your search query.", "Error!");
             }
             catch (HttpRequestException)
             {
-                _dialogProvider.ShowMessage("Проблемы с подключением к сети!");
+                _dialogProvider.ShowMessage("Check your network connection.", "Error!");
             }
             catch (NullReferenceException)
             {
-                _dialogProvider.ShowMessage("Не получилось разобрать ответ от сервера:C");
+                _dialogProvider.ShowMessage("Error while reading data from server", "Error!");
             }
             catch (Exception e)
             {
-                _dialogProvider.ShowMessage("Что-то пошло не так." + e.Message);
+                _dialogProvider.ShowMessage("Something went wrong" + e.Message, "Error!");
             }
 
             ProgressRingIsActive = false;
